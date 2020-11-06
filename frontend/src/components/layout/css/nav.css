@@ -1,0 +1,23 @@
+.icon {
+  margin: 0 5px;
+  color: grey;
+}
+
+nav {
+  margin: 0 !important;
+  outline: none;
+  box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.nav-link {
+  color: black !important;
+}
+.logo {
+  width: 40px;
+}
+
+/* @media screen and (min-width: 1000px) {
+  nav {
+    max-height: 70px;
+  }
+} */

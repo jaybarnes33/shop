@@ -1,0 +1,11 @@
+.text-center {
+  text-align: center !important;
+}
+
+.app {
+  min-height: 90vh;
+}
+
+* {
+  margin: 0;
+}

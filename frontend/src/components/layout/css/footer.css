@@ -1,0 +1,15 @@
+footer {
+  position: absolute;
+  margin: 10px;
+  top: 80px;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 320px) and (max-width: 720px) {
+  footer {
+    position: absolute;
+    top: 20px;
+  }
+}

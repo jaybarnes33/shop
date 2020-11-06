@@ -1,0 +1,19 @@
+.select {
+  width: 45px;
+  text-align: center;
+  padding: 0 0.2rem;
+}
+
+.cart_title {
+  font-size: 1.8rem;
+  padding: 1rem;
+}
+
+.subtotal {
+  font-size: 1.4rem;
+}
+
+.subtotal > span {
+  color: #f39233;
+  font-weight: bold;
+}

@@ -1,0 +1,15 @@
+.rating span {
+  margin: 0.1rem;
+}
+
+h3 {
+  padding: 1rem 0;
+}
+
+.card-title {
+  color: black;
+}
+
+.list-group {
+  outline: none;
+}
