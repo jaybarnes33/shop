@@ -27,7 +27,7 @@ const ProfileScreen = ({ location, history }) => {
     if (!userInfo) {
       history.push("/signin");
     } else {
-      if (!user.name) {
+      if (user._id !== userInfo._id) {
         dispatch(getUserDetails("profile"));
       } else {
         setName(user.name);

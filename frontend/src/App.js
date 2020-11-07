@@ -14,7 +14,9 @@ import PaymentScreen from "./components/screens/PaymentScreen";
 import PlaceOrderScreen from "./components/screens/PlaceOrderScreen";
 import OrderScreen from "./components/screens/OrderScreen";
 import UserListScreen from "./components/screens/UserListScreen";
+import UserEditScreen from "./components/screens/UserEditScreen";
 import "./index.css";
+import ProductListScreen from "./components/screens/ProductListScreen";
 const App = () => {
   return (
     <Router>
@@ -32,6 +34,8 @@ const App = () => {
         <Route path="/payment" component={PaymentScreen} />
         <Route path="/order/:order_id" component={OrderScreen} />
         <Route path="/admin/users" component={UserListScreen} />
+        <Route path="/admin/products" component={ProductListScreen} />
+        <Route path="/admin/user/:user_id/edit" component={UserEditScreen} />
       </section>
 
       <Footer />

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Row, Col, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Product from "../layout/Product";
 import Loader from "../layout/Loader";
 import Message from "../layout/Message";
@@ -16,7 +16,7 @@ const HomeScreen = () => {
   const electronics = products.filter(
     (product) => product.category === "Electronics"
   );
-  console.log(typeof products);
+
   useEffect(() => {
     dispatch(listProducts());
   }, [dispatch]);

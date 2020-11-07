@@ -1,44 +1,57 @@
 import React, { useEffect } from "react";
-import { Table, Button, Container } from "react-bootstrap";
+import { Table, Button, Container, Row, Col, Image } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import Message from "../layout/Message";
 import Loader from "../layout/Loader";
-import { getUsers, deleteUser } from "../../actions/user";
-import { USER_LIST_RESET } from "../../constants/user";
-const UserListScreen = ({ history }) => {
+import { listProducts, deleteProduct } from "../../actions/product";
+
+const ProductListScreen = ({ history, match }) => {
   const dispatch = useDispatch();
 
-  const userList = useSelector((state) => state.userList);
-  const { loading, error, users } = userList;
+  const productList = useSelector((state) => state.productList);
+  const { loading, error, products } = productList;
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
-  const userDelete = useSelector((state) => state.userDelete);
+  const createProductHandler = (product) => {
+    //
+  };
+
+  const productDelete = useSelector((state) => state.productDelete);
   const {
     success: successDelete,
     error: errorDelete,
     loading: loadingDelete,
-  } = userDelete;
+  } = productDelete;
 
   const deleteHandler = (id) => {
     if (window.confirm("Are you sure?")) {
-      dispatch(deleteUser(id));
+      dispatch(deleteProduct(id));
     }
   };
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) {
-      dispatch(getUsers());
+      dispatch(listProducts());
     } else {
-      dispatch({ type: USER_LIST_RESET });
       history.push("/signin");
     }
-  }, [dispatch, history, successDelete, userInfo]);
+  }, [dispatch, history, userInfo, successDelete]);
 
   return (
     <Container>
-      <h1 className="my-3">Users</h1>
+      <Row className="align-items-center">
+        <Col>
+          <h1 className="my-3">Products</h1>
+        </Col>
+        <Col className="text-right">
+          <Button className="my-3 btn-dark" onClick={{ createProductHandler }}>
+            Create Product <i className="fas fa-plus mx-1"></i>
+          </Button>
+        </Col>
+      </Row>
+
       {loadingDelete && <Loader />}
       {errorDelete && <Message>{errorDelete}</Message>}
       {loading ? (
@@ -49,32 +62,29 @@ const UserListScreen = ({ history }) => {
         <Table striped bordered responsive hover className="table-sm">
           <thead>
             <tr>
-              <th>Date</th>
+              <th></th>
               <th>ID</th>
               <th>Name</th>
-              <th>Email</th>
-              <th>Admin</th>
-              <th></th>
+              <th>Price</th>
+              <th>Category</th>
+              <th>Brand</th>
+              <th>Stock</th>
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => (
-              <tr key={user._id}>
-                <td>{user.createdAt}</td>
-                <td>{user._id}</td>
-                <td>{user.name}</td>
+            {products.map((product) => (
+              <tr key={product._id}>
                 <td>
-                  <a href={`mailto:${user.email}`}>{user.email}</a>
+                  <Image style={{ width: "65px" }} src={product.image} />
                 </td>
+                <td>{product._id}</td>
+                <td>{product.name}</td>
+                <td>{product.price}</td>
+                <td>{product.category}</td>
+                <td>{product.brand}</td>
+                <td>{product.countInStock}</td>
                 <td>
-                  {user.isAdmin ? (
-                    <i className="fas fa-check" style={{ color: "green" }}></i>
-                  ) : (
-                    <i className="fas fa-times" style={{ color: "red" }}></i>
-                  )}
-                </td>
-                <td>
-                  <LinkContainer to={`/admin/user/${user._id}/edit`}>
+                  <LinkContainer to={`/admin/product/${product._id}/edit`}>
                     <Button variant="light" className="btn-sm">
                       <i className="fas fa-edit"></i>
                     </Button>
@@ -82,7 +92,7 @@ const UserListScreen = ({ history }) => {
                   <Button
                     variant="danger"
                     className="btn-sm"
-                    onClick={() => deleteHandler(user._id)}
+                    onClick={() => deleteHandler(product._id)}
                   >
                     <i className="fas fa-trash"></i>
                   </Button>
@@ -96,4 +106,4 @@ const UserListScreen = ({ history }) => {
   );
 };
 
-export default UserListScreen;
+export default ProductListScreen;

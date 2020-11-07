@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   Row,
   Image,
@@ -20,8 +20,6 @@ import { getOrder } from "../../actions/order";
 const OrderScreen = ({ match }) => {
   const order_id = match.params.order_id;
   const dispatch = useDispatch();
-  const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
 
   const addDecimals = (num) => {
     return (Math.round(num * 100) / 100).toFixed(2);
@@ -134,25 +132,27 @@ const OrderScreen = ({ match }) => {
               <ListGroup.Item>
                 <Row>
                   <Col>Items</Col>
-                  <Col>GH₵{itemsPrice}</Col>
+                  <Col>GH₵{addDecimals(itemsPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Shipping</Col>
-                  <Col>GH₵{shippingPrice}</Col>
+                  <Col>GH₵{addDecimals(shippingPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col>Tax</Col>
-                  <Col>GH₵{taxPrice}</Col>
+                  <Col>GH₵{addDecimals(taxPrice)}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
                   <Col className={styles.bold}>Total</Col>
-                  <Col className={styles.bold}>GH₵{totalPrice}</Col>
+                  <Col className={styles.bold}>
+                    GH₵{addDecimals(totalPrice)}
+                  </Col>
                 </Row>
               </ListGroup.Item>
             </ListGroup>
