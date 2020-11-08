@@ -66,9 +66,18 @@ const Header = () => {
                 </NavDropdown.Item>
               </NavDropdown>
             ) : (
-              <LinkContainer to="/signin">
-                <Nav.Link className="nav-link">Sign In</Nav.Link>
-              </LinkContainer>
+              <NavDropdown
+                title={<i className="icon fas fa-user"></i>}
+                id="userMenu"
+              >
+                <LinkContainer to="/signin">
+                  <NavDropdown.Item>Sign In</NavDropdown.Item>
+                </LinkContainer>
+
+                <LinkContainer to="/register">
+                  <NavDropdown.Item>Register</NavDropdown.Item>
+                </LinkContainer>
+              </NavDropdown>
             )}
             {userInfo && userInfo.isAdmin && (
               <NavDropdown title="Admin" id="adminMenu">
@@ -87,10 +96,7 @@ const Header = () => {
             )}
           </Nav>
           <LinkContainer to="/cart">
-            <Nav.Link
-              className="nav-link mr-3"
-              style={{ position: "relative" }}
-            >
+            <Nav.Link className="nav-link mr-3">
               <i className="icon fas fa-shopping-cart"></i>
               <sup>
                 <Badge style={{ position: "absolute" }} pill variant="success">
