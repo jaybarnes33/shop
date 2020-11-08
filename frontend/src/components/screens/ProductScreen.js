@@ -22,11 +22,14 @@ const ProductScreen = ({ match, history }) => {
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
   useEffect(() => {
-    dispatch(listProduct(match.params.id));
-  }, [dispatch, match]);
+    if (!product || product._id !== match.params.id) {
+      dispatch(listProduct(match.params.id));
+    }
+  }, [dispatch, match, product]);
 
   const addToCartHandler = () => {
     history.push(`/cart/${match.params.id}?qty=${quantity}`);
+    // history.push(`/products/${product._id}`);
   };
   return (
     <Container>

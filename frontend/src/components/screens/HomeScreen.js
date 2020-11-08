@@ -14,7 +14,13 @@ const HomeScreen = () => {
   const { loading, error, products } = productList;
 
   const electronics = products.filter(
-    (product) => product.category === "Electronics"
+    (product) =>
+      product.category === "Electronics" &&
+      product.image !== "/images/sample.jpg"
+  );
+
+  const latest = products.filter(
+    (product) => product.image !== "/images/sample.jpg"
   );
 
   useEffect(() => {
@@ -31,7 +37,7 @@ const HomeScreen = () => {
           <p className={styles.heading}>Latest Products</p>
           <Container className={styles.productList}>
             <section className={styles.latestProducts}>
-              {products.map((product) => (
+              {latest.map((product) => (
                 <div className={styles.flexItem} key={product._id}>
                   <Product product={product} />
                 </div>

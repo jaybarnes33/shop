@@ -4,8 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import Message from "../layout/Message";
 import Loader from "../layout/Loader";
-import { listProducts, deleteProduct } from "../../actions/product";
+import {
+  listProducts,
+  deleteProduct,
+  createProduct,
+} from "../../actions/product";
 
+import { PRODUCT_CREATE_RESET } from "../../constants/product";
 const ProductListScreen = ({ history, match }) => {
   const dispatch = useDispatch();
 
@@ -15,10 +20,6 @@ const ProductListScreen = ({ history, match }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
-  const createProductHandler = (product) => {
-    //
-  };
-
   const productDelete = useSelector((state) => state.productDelete);
   const {
     success: successDelete,
@@ -26,18 +27,42 @@ const ProductListScreen = ({ history, match }) => {
     loading: loadingDelete,
   } = productDelete;
 
+  const productCreate = useSelector((state) => state.productCreate);
+  const {
+    success: successCreate,
+    error: errorCreate,
+    loading: loadingCreate,
+    product: createdProduct,
+  } = productCreate;
+
   const deleteHandler = (id) => {
     if (window.confirm("Are you sure?")) {
       dispatch(deleteProduct(id));
     }
   };
+
   useEffect(() => {
-    if (userInfo && userInfo.isAdmin) {
-      dispatch(listProducts());
-    } else {
+    dispatch({ type: PRODUCT_CREATE_RESET });
+    if (!userInfo && !userInfo.isAdmin) {
       history.push("/signin");
     }
-  }, [dispatch, history, userInfo, successDelete]);
+    if (successCreate) {
+      history.push(`/admin/product/${createdProduct._id}/edit`);
+    } else {
+      dispatch(listProducts());
+    }
+  }, [
+    dispatch,
+    history,
+    userInfo,
+    successDelete,
+    successCreate,
+    createdProduct,
+  ]);
+
+  const createProductHandler = () => {
+    dispatch(createProduct());
+  };
 
   return (
     <Container>
@@ -46,7 +71,7 @@ const ProductListScreen = ({ history, match }) => {
           <h1 className="my-3">Products</h1>
         </Col>
         <Col className="text-right">
-          <Button className="my-3 btn-dark" onClick={{ createProductHandler }}>
+          <Button className="my-3 btn-dark" onClick={createProductHandler}>
             Create Product <i className="fas fa-plus mx-1"></i>
           </Button>
         </Col>
@@ -54,6 +79,8 @@ const ProductListScreen = ({ history, match }) => {
 
       {loadingDelete && <Loader />}
       {errorDelete && <Message>{errorDelete}</Message>}
+      {loadingCreate && <Loader />}
+      {errorCreate && <Message>{errorCreate}</Message>}
       {loading ? (
         <Loader />
       ) : error ? (
