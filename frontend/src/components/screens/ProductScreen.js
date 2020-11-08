@@ -101,7 +101,12 @@ const ProductScreen = ({ match, history }) => {
                           as="select"
                           className="select"
                           value={quantity}
-                          onChange={(e) => setQuantity(e.target.value)}
+                          onChange={(e) => {
+                            setQuantity(Number(e.target.value));
+                            dispatch(
+                              addToCart(product._id, Number(e.target.value))
+                            );
+                          }}
                         >
                           {[...Array(product.countInStock).keys()].map((x) => (
                             <option key={x + 1} value={x + 1}>
