@@ -26,7 +26,7 @@ const Header = () => {
   return (
     <>
       <Nav></Nav>
-      <Navbar className="main-nav" expand="lg" collapseOnSelect>
+      <Navbar className="main-nav">
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand>
@@ -53,58 +53,54 @@ const Header = () => {
               />
             </svg>
           </Navbar.Toggle>{" "}
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ml-auto">
-              {userInfo ? (
-                <NavDropdown title={userInfo.name} id="username">
-                  <LinkContainer to="/profile">
-                    <NavDropdown.Item>Profile</NavDropdown.Item>
-                  </LinkContainer>
-
-                  <NavDropdown.Item onClick={logOutHandler}>
-                    Logout
-                  </NavDropdown.Item>
-                </NavDropdown>
-              ) : (
-                <LinkContainer to="/signin">
-                  <Nav.Link className="nav-link">Sign In</Nav.Link>
+          {/* <Navbar.Collapse id="basic-navbar-nav"> */}
+          <Nav className="ml-auto">
+            {userInfo ? (
+              <NavDropdown title={userInfo.name} id="username">
+                <LinkContainer to="/profile">
+                  <NavDropdown.Item>Profile</NavDropdown.Item>
                 </LinkContainer>
-              )}
-              {userInfo && userInfo.isAdmin && (
-                <NavDropdown title="Admin" id="adminMenu">
-                  <LinkContainer to="/admin/users">
-                    <NavDropdown.Item>Users</NavDropdown.Item>
-                  </LinkContainer>
 
-                  <LinkContainer to="/admin/products">
-                    <NavDropdown.Item>Products</NavDropdown.Item>
-                  </LinkContainer>
+                <NavDropdown.Item onClick={logOutHandler}>
+                  Logout
+                </NavDropdown.Item>
+              </NavDropdown>
+            ) : (
+              <LinkContainer to="/signin">
+                <Nav.Link className="nav-link">Sign In</Nav.Link>
+              </LinkContainer>
+            )}
+            {userInfo && userInfo.isAdmin && (
+              <NavDropdown title="Admin" id="adminMenu">
+                <LinkContainer to="/admin/users">
+                  <NavDropdown.Item>Users</NavDropdown.Item>
+                </LinkContainer>
 
-                  <LinkContainer to="/admin/orders">
-                    <NavDropdown.Item>Orders</NavDropdown.Item>
-                  </LinkContainer>
-                </NavDropdown>
-              )}
-            </Nav>
-            <LinkContainer to="/cart">
-              <Nav.Link
-                className="nav-link mr-3"
-                style={{ position: "relative" }}
-              >
-                <i className="icon fas fa-shopping-cart"></i>
-                <sup>
-                  <Badge
-                    style={{ position: "absolute" }}
-                    pill
-                    variant="success"
-                  >
-                    {cartItems.length !== 0 &&
-                      cartItems.reduce((acc, item) => acc + item.quantity, 0)}
-                  </Badge>
-                </sup>
-              </Nav.Link>
-            </LinkContainer>
-          </Navbar.Collapse>
+                <LinkContainer to="/admin/products">
+                  <NavDropdown.Item>Products</NavDropdown.Item>
+                </LinkContainer>
+
+                <LinkContainer to="/admin/orders">
+                  <NavDropdown.Item>Orders</NavDropdown.Item>
+                </LinkContainer>
+              </NavDropdown>
+            )}
+          </Nav>
+          <LinkContainer to="/cart">
+            <Nav.Link
+              className="nav-link mr-3"
+              style={{ position: "relative" }}
+            >
+              <i className="icon fas fa-shopping-cart"></i>
+              <sup>
+                <Badge style={{ position: "absolute" }} pill variant="success">
+                  {cartItems.length !== 0 &&
+                    cartItems.reduce((acc, item) => acc + item.quantity, 0)}
+                </Badge>
+              </sup>
+            </Nav.Link>
+          </LinkContainer>
+          {/* </Navbar.Collapse> */}
         </Container>
       </Navbar>
     </>
