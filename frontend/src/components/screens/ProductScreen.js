@@ -103,9 +103,6 @@ const ProductScreen = ({ match, history }) => {
                           value={quantity}
                           onChange={(e) => {
                             setQuantity(Number(e.target.value));
-                            dispatch(
-                              addToCart(product._id, Number(e.target.value))
-                            );
                           }}
                         >
                           {[...Array(product.countInStock).keys()].map((x) => (
