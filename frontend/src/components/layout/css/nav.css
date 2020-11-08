@@ -1,9 +1,9 @@
 .icon {
-  margin: 0 5px;
   color: grey;
+  font-size: 1rem;
 }
 
-nav {
+.main-nav {
   margin: 0 !important;
   outline: none;
   box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.3);
@@ -11,9 +11,14 @@ nav {
 
 .nav-link {
   color: black !important;
+  font-size: 0.8rem;
 }
 .logo {
   width: 40px;
+}
+
+.nav-dropdown {
+  color: black;
 }
 
 /* @media screen and (min-width: 1000px) {

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -16,19 +16,10 @@ import { addToCart, removeFromCart } from "../../actions/cart";
 import Message from "../layout/Message";
 
 const CartScreen = ({ match, location, history }) => {
-  const productId = match.params.id;
-  const quantity = location.search ? Number(location.search.split("=")[1]) : 1;
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
-
-  useEffect(() => {
-    if (productId) {
-      dispatch(addToCart(productId, quantity));
-    } else {
-    }
-  }, [dispatch, productId, quantity]);
 
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));

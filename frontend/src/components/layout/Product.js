@@ -11,7 +11,9 @@ const Product = ({ product }) => {
           src={product.image}
           variant="top"
           rounded="true"
+          loading="lazy"
           fluid="true"
+          alt={product.name}
         />
       </Link>
       <Card.Body>

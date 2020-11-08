@@ -27,13 +27,12 @@ const LoginScreen = ({ location, history }) => {
   };
   return loading ? (
     <Loader />
-  ) : error ? (
-    <Message variant="danger">{error}</Message>
   ) : (
     <FormContainer>
       <h1 className="" style={{ fontSize: "1.5rem", margin: "1.5rem 0" }}>
         Sign In
       </h1>
+      {error && <Message variant="danger">{error}</Message>}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="email">
           <Form.Label>Email Address</Form.Label>
