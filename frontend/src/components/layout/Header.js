@@ -62,7 +62,7 @@ const Header = () => {
                   <Nav.Link className="nav-link">
                     <i className="icon fas fa-shopping-cart"></i>
                     <sup>
-                      <Badge pill variant="success">
+                      <Badge pill variant="danger">
                         {cartItems.length !== 0 &&
                           cartItems.reduce(
                             (acc, item) => acc + item.quantity,
@@ -78,7 +78,22 @@ const Header = () => {
                     <LinkContainer to="/profile">
                       <NavDropdown.Item>Profile</NavDropdown.Item>
                     </LinkContainer>
-
+                    {userInfo && userInfo.isAdmin && (
+                      <>
+                        <hr />
+                        <NavDropdown.Item>Admin</NavDropdown.Item>
+                        <hr />
+                        <LinkContainer to="/admin/users">
+                          <NavDropdown.Item>Users</NavDropdown.Item>
+                        </LinkContainer>
+                        <LinkContainer to="/admin/products">
+                          <NavDropdown.Item>Products</NavDropdown.Item>
+                        </LinkContainer>
+                        <LinkContainer to="/admin/orders">
+                          <NavDropdown.Item>Orders</NavDropdown.Item>
+                        </LinkContainer>
+                      </>
+                    )}
                     <NavDropdown.Item onClick={logOutHandler}>
                       Logout
                     </NavDropdown.Item>
@@ -174,7 +189,7 @@ const Header = () => {
                   <Nav.Link className="nav-link">
                     <i className="icon fas fa-shopping-cart"></i>
                     <sup>
-                      <Badge pill variant="success">
+                      <Badge pill variant="danger">
                         {cartItems.length !== 0 &&
                           cartItems.reduce(
                             (acc, item) => acc + item.quantity,

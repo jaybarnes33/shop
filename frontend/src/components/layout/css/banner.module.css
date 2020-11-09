@@ -1,0 +1,7 @@
+.banner {
+  min-height: 50vh;
+  background-image: url("/images/bg3mobi.jpg");
+  padding: 20px;
+  background-position: center;
+  background-size: cover;
+}
