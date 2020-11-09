@@ -1,16 +1,19 @@
 .icon {
-  color: grey;
+  color: black;
+  font-size: 1.2rem;
 }
 
+header {
+  box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.3);
+}
 .main-nav {
   margin: 0 !important;
   outline: none;
-  box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.3);
 }
 
 .nav-link {
   color: black !important;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 .logo {
   width: 40px;
@@ -20,8 +23,18 @@
   color: black;
 }
 
-/* @media screen and (min-width: 1000px) {
-  nav {
-    max-height: 70px;
+.secondary-nav {
+  text-align: right;
+}
+
+@media screen and (min-width: 992px) {
+  .nav-mobile {
+    display: none;
   }
-} */
+}
+
+@media screen and (max-width: 991px) {
+  .nav-desktop {
+    display: none;
+  }
+}
