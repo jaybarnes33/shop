@@ -6,7 +6,10 @@ import Message from "../layout/Message";
 import Loader from "../layout/Loader";
 import FormContainer from "../layout/FormContainer";
 import { listProduct, updateProduct } from "../../actions/product";
-import { PRODUCT_UPDATE_RESET } from "../../constants/product";
+import {
+  PRODUCT_DETAILS_RESET,
+  PRODUCT_UPDATE_RESET,
+} from "../../constants/product";
 
 const ProductEditScreen = ({ match, history }) => {
   const product_id = match.params.product_id;
@@ -34,6 +37,7 @@ const ProductEditScreen = ({ match, history }) => {
   useEffect(() => {
     if (successUpdate) {
       dispatch({ type: PRODUCT_UPDATE_RESET });
+      dispatch({ type: PRODUCT_DETAILS_RESET });
       history.push("/admin/products");
     } else {
       if (!product || product._id !== product_id) {

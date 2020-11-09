@@ -53,6 +53,12 @@
   padding: 10px 25px;
 }
 
+.womenFashion .heading {
+  background-color: rgb(124, 13, 69);
+  border-radius: 10px 10px 0 0;
+  color: white;
+}
+
 /* .productList::-webkit-scrollbar,
 .categoryList::-webkit-scrollbar {
   display: none;

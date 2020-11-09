@@ -20,6 +20,18 @@ const HomeScreen = () => {
       product.image !== "/images/sample.jpg"
   );
 
+  const womenFashion = products.filter(
+    (product) =>
+      product.category === "Women's Fashion" &&
+      product.image !== "/images/sample.jpg"
+  );
+
+  const kidFashion = products.filter(
+    (product) =>
+      product.category === "Kid's Fashion" &&
+      product.image !== "/images/sample.jpg"
+  );
+
   const latest = products.filter(
     (product) => product.image !== "/images/sample.jpg"
   );
@@ -49,18 +61,50 @@ const HomeScreen = () => {
                 </section>
               </Container>
             </div>
-            <div className={styles.category}>
-              <p className={styles.heading}>Electronics</p>
-              <Container className={styles.categoryList}>
-                <section className={styles.categoryItems}>
-                  {electronics.map((product) => (
-                    <div className={styles.flexItem} key={product._id}>
-                      <Product product={product} />
-                    </div>
-                  ))}
-                </section>
-              </Container>
-            </div>
+            {electronics.length !== 0 && (
+              <div className={styles.category}>
+                <p className={styles.heading}>Electronics</p>
+                <Container className={styles.categoryList}>
+                  <section className={styles.categoryItems}>
+                    {electronics.map((product) => (
+                      <div className={styles.flexItem} key={product._id}>
+                        <Product product={product} />
+                      </div>
+                    ))}
+                  </section>
+                </Container>
+              </div>
+            )}
+
+            {womenFashion.length !== 0 && (
+              <div className={(styles.category, styles.womenFashion)}>
+                <p className={styles.heading}>Women's Fashion</p>
+                <Container className={styles.categoryList}>
+                  <section className={styles.categoryItems}>
+                    {womenFashion.map((product) => (
+                      <div className={styles.flexItem} key={product._id}>
+                        <Product product={product} />
+                      </div>
+                    ))}
+                  </section>
+                </Container>
+              </div>
+            )}
+
+            {kidFashion.length !== 0 && (
+              <div className={(styles.category, styles.kidFashion)}>
+                <p className={styles.heading}>Kids's Fashion</p>
+                <Container className={styles.categoryList}>
+                  <section className={styles.categoryItems}>
+                    {kidFashion.map((product) => (
+                      <div className={styles.flexItem} key={product._id}>
+                        <Product product={product} />
+                      </div>
+                    ))}
+                  </section>
+                </Container>
+              </div>
+            )}
           </>
         )}
       </Container>

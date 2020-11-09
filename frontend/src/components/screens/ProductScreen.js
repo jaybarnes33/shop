@@ -17,6 +17,7 @@ import Message from "../layout/Message";
 import { listProduct } from "../../actions/product";
 import "./css/product.css";
 import { addToCart } from "../../actions/cart";
+import { PRODUCT_DETAILS_RESET } from "../../constants/product";
 const ProductScreen = ({ match, history }) => {
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();

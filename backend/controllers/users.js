@@ -114,7 +114,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
 // @route Get /api/users/
 // @access Private/Admin
 const getUsers = asyncHandler(async (req, res) => {
-  const users = await User.find({}).select("-password");
+  const users = await User.find({});
   if (!users) {
     res.status(404);
     throw new Error("No users found");
