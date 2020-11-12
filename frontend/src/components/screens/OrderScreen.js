@@ -15,9 +15,10 @@ import Message from "../layout/Message";
 import Loader from "../layout/Loader";
 import styles from "../../misc.module.css";
 
-import { getOrder } from "../../actions/order";
+import { deliveredOrder, getOrder, sendOrder } from "../../actions/order";
+import { ORDER_DELIVERED_RESET, ORDER_SEND_RESET } from "../../constants/order";
 
-const OrderScreen = ({ match }) => {
+const OrderScreen = ({ match, history }) => {
   const order_id = match.params.order_id;
   const dispatch = useDispatch();
 
@@ -27,6 +28,24 @@ const OrderScreen = ({ match }) => {
 
   const orderDetails = useSelector((state) => state.orderDetails);
   const { order, loading, error } = orderDetails;
+
+  const orderDeliver = useSelector((state) => state.orderDeliver);
+  const {
+    success: successDeliver,
+    loading: loadingDeliver,
+    error: errorDeliver,
+  } = orderDeliver;
+
+  const orderSend = useSelector((state) => state.orderSend);
+  const {
+    success: successSend,
+    loading: loadingSend,
+    error: errorSend,
+  } = orderSend;
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
   const {
     shippingAddress,
     orderItems,
@@ -38,9 +57,32 @@ const OrderScreen = ({ match }) => {
     user,
   } = order;
   useEffect(() => {
-    dispatch(getOrder(order_id));
-  }, [dispatch, order_id]);
+    if (!userInfo || (userInfo && !userInfo.isAdmin)) {
+      history.push("/signin");
+    } else {
+      if (order._id !== order_id || successDeliver || successSend) {
+        dispatch({ type: ORDER_DELIVERED_RESET });
+        dispatch({ type: ORDER_SEND_RESET });
+        dispatch(getOrder(order_id));
+      }
+    }
+  }, [
+    dispatch,
+    order_id,
+    history,
+    userInfo,
+    order,
+    successDeliver,
+    successSend,
+  ]);
 
+  const deliverHandler = () => {
+    dispatch(deliveredOrder(order));
+  };
+
+  const sendHandler = () => {
+    dispatch(sendOrder(order));
+  };
   return loading ? (
     <Loader />
   ) : error ? (
@@ -69,8 +111,16 @@ const OrderScreen = ({ match }) => {
               <strong className={styles.bold}>Address: </strong>
               {shippingAddress.address}, {shippingAddress.city},{" "}
               {shippingAddress.region}, <br />
+              {order.isSent ? (
+                <Message>{` Sent on ${order.sentAt.substring(0, 10)}`}</Message>
+              ) : (
+                <Message variant="danger">Not sent</Message>
+              )}
               {order.isDelivered ? (
-                <Message>{` Delivered on ${order.deliveredAt}`}</Message>
+                <Message>{` Delivered on ${order.deliveredAt.substring(
+                  0,
+                  10
+                )}`}</Message>
               ) : (
                 <Message variant="danger">Not delivered</Message>
               )}
@@ -82,7 +132,7 @@ const OrderScreen = ({ match }) => {
               <strong className={styles.bold}>Method: </strong>
               {paymentMethod}
               {order.isPaid ? (
-                <Message>{` Paid on ${order.paidAt}`}</Message>
+                <Message>{` Paid on ${order.paidAt.substring(0, 10)}`}</Message>
               ) : (
                 <Message variant="danger">Not Paid</Message>
               )}
@@ -156,20 +206,50 @@ const OrderScreen = ({ match }) => {
                 </Row>
               </ListGroup.Item>
             </ListGroup>
-            <ListGroup.Item>
-              {error && (
+            {userInfo && order.user._id === userInfo._id && (
+              <ListGroup.Item>
+                {error && (
+                  <ListGroup.Item>
+                    <Message variant="danger">{error}</Message>
+                  </ListGroup.Item>
+                )}
+
+                <Button
+                  type="button"
+                  className="btn btn-block"
+                  disabled={
+                    orderItems.length === 0 ||
+                    (userInfo && userInfo._id !== order.user._id)
+                  }
+                >
+                  Pay with {paymentMethod}
+                </Button>
+              </ListGroup.Item>
+            )}
+            {userInfo &&
+              userInfo.isAdmin &&
+              // order.isPaid &&
+              !order.isSent &&
+              !order.isDelivered && (
                 <ListGroup.Item>
-                  <Message variant="danger">{error}</Message>
+                  <Button className="btn-block" onClick={sendHandler}>
+                    {" "}
+                    Mark as sent
+                  </Button>
                 </ListGroup.Item>
               )}
-              <Button
-                type="button"
-                className="btn btn-block"
-                disabled={orderItems.length === 0}
-              >
-                Pay with {paymentMethod}
-              </Button>
-            </ListGroup.Item>
+            {userInfo &&
+              userInfo.isAdmin &&
+              order.isPaid &&
+              order.isSent &&
+              !order.isDelivered && (
+                <ListGroup.Item>
+                  <Button className="btn-block" onClick={deliverHandler}>
+                    {" "}
+                    Mark as delivered
+                  </Button>
+                </ListGroup.Item>
+              )}
           </Card>
         </Col>
       </Row>

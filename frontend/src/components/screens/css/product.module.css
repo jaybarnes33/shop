@@ -1,0 +1,63 @@
+.rating span {
+  margin: 0.1rem;
+}
+
+.heading {
+  padding: 0.4rem;
+  font-size: 1.5rem;
+}
+
+h3 {
+  padding: 1rem 0;
+}
+
+.card-title {
+  color: black;
+}
+
+.list-group-item {
+  outline: none;
+  /* border: none;
+  border-bottom: 1px solid black; */
+}
+
+.select {
+  width: 70px;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.categoryItems {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sameCategory {
+  margin: 1rem 0;
+  background-color: whitesmoke;
+  border: 10px;
+  border-radius: 10px 10px 0 0;
+}
+
+.categoryContainer {
+  margin: 1.3rem 0;
+  overflow-x: scroll;
+}
+
+.sameCategory .heading {
+  background-color: black;
+  color: white;
+  border-radius: 10px 10px 0 0;
+}
+
+.flexItem {
+  margin: 15px;
+  width: 200px;
+}
+
+.flexItem > div {
+  border: none;
+  padding: 0 !important;
+  box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.3);
+}

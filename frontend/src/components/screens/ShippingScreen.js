@@ -42,6 +42,7 @@ const ShippingScreen = ({ history }) => {
             type="text"
             placeholder="Region"
             value={region}
+            required
             onChange={(e) => setRegion(e.target.value)}
           ></Form.Control>
         </Form.Group>
@@ -51,6 +52,7 @@ const ShippingScreen = ({ history }) => {
             type="text"
             placeholder="Address"
             value={address}
+            required
             onChange={(e) => setAddress(e.target.value)}
           ></Form.Control>
         </Form.Group>
@@ -62,6 +64,7 @@ const ShippingScreen = ({ history }) => {
             value={phone}
             maxLength={10}
             minLength={10}
+            required
             onChange={(e) => setPhone(e.target.value)}
           ></Form.Control>
         </Form.Group>

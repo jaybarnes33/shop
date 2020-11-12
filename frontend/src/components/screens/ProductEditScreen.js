@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { Form, Button, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,6 +22,8 @@ const ProductEditScreen = ({ match, history }) => {
   const [category, setCategory] = useState("");
   const [countInStock, setCountInStock] = useState(0);
   const [description, setDescription] = useState("");
+  const [uploading, setUpdloading] = useState(false);
+  const [uploadError, setUpdloadError] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -52,7 +55,7 @@ const ProductEditScreen = ({ match, history }) => {
         setDescription(product.description);
       }
     }
-  }, [dispatch, product, product_id, successUpdate]);
+  }, [dispatch, product, product_id, successUpdate, history]);
 
   const submitHandler = (e) => {
     dispatch(
@@ -69,6 +72,25 @@ const ProductEditScreen = ({ match, history }) => {
     );
   };
 
+  const uploadFileHandler = async (e) => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append("image", file);
+    setUpdloading(true);
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "/multipart/form-data",
+        },
+      };
+      const { data } = await axios.post("/api/uploads", formData, config);
+      setImage(data);
+      setUpdloading(false);
+    } catch (error) {
+      setUpdloading(false);
+      setUpdloadError(true);
+    }
+  };
   return (
     <Container>
       <Link to="/admin/products" className="btn btn-dark my-3">
@@ -76,6 +98,7 @@ const ProductEditScreen = ({ match, history }) => {
       </Link>
       {loadingUpdate && <Loader />}
       {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
+      {uploadError && <Message variant="danger">{uploadError}</Message>}
       {successUpdate && <Message variant="success">Product Updated</Message>}
       {loading ? (
         <Loader />
@@ -115,7 +138,7 @@ const ProductEditScreen = ({ match, history }) => {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group controlId="Image">
+            <Form.Group controlId="image">
               <Form.Label>Image</Form.Label>
               <Form.Control
                 type="text"
@@ -123,6 +146,13 @@ const ProductEditScreen = ({ match, history }) => {
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
               ></Form.Control>
+              <Form.File
+                type="text"
+                label="Choose file"
+                custom
+                onChange={uploadFileHandler}
+              ></Form.File>
+              {uploading && <Loader />}
             </Form.Group>
 
             <Form.Group controlId="brand">

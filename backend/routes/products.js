@@ -14,4 +14,5 @@ router
   .put(protect, admin, controller.updateProduct)
   .delete(protect, admin, controller.deleteProduct);
 
+router.route("/:product_id/reviews").post(protect, controller.createReview);
 export default router;

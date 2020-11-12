@@ -96,10 +96,10 @@ const register = (name, email, password) => async (dispatch) => {
 const logOut = () => async (dispatch) => {
   localStorage.removeItem("userInfo");
   dispatch({ type: USER_LOGOUT });
+  dispatch({ type: CART_RESET });
   localStorage.removeItem("cartItems");
   localStorage.removeItem("shippingAddress");
   localStorage.removeItem("paymentMethod");
-  dispatch({ type: CART_RESET });
 };
 
 const getUserDetails = (id) => async (dispatch, getState) => {

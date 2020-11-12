@@ -5,15 +5,15 @@ import "./css/product.css";
 import { Link } from "react-router-dom";
 const Product = ({ product }) => {
   return (
-    <Card className="my-3 p-3 rounded">
+    <Card className="my-3 p-3">
       <Link to={`/products/${product._id}`}>
         <Card.Img
           style={{ height: "150px", borderRadius: "2px", background: "none" }}
           src={product.image}
           variant="top"
-          rounded
+          rounded="true"
           loading="lazy"
-          fluid
+          fluid="true"
           alt={product.name}
         />
       </Link>

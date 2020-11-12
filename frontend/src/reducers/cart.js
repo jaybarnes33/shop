@@ -22,11 +22,13 @@ export const cartReducer = (
           cartItems: state.cartItems.map((x) =>
             x.product === existItem.product ? item : x
           ),
+          success: true,
         };
       } else {
         return {
           ...state,
           cartItems: [...state.cartItems, item],
+          success: true,
         };
       }
     case CART_REMOVE_ITEM:
@@ -45,8 +47,8 @@ export const cartReducer = (
         paymentMethod: action.payload,
       };
     case CART_RESET:
-      localStorage.removeItem("cartItems");
       return {
+        ...state,
         cartItems: [],
       };
 

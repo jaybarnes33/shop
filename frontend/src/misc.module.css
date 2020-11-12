@@ -10,3 +10,7 @@
 .active {
   color: #f8e825;
 }
+
+.rating span {
+  margin: 0.1rem;
+}

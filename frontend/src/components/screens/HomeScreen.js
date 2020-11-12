@@ -32,6 +32,11 @@ const HomeScreen = () => {
       product.image !== "/images/sample.jpg"
   );
 
+  const phonesEtc = products.filter(
+    (product) =>
+      product.category === "Phones & Accessories" &&
+      product.image !== "/images/sample.jpg"
+  );
   const latest = products.filter(
     (product) => product.image !== "/images/sample.jpg"
   );
@@ -49,15 +54,18 @@ const HomeScreen = () => {
           <Message variant="danger">{error}</Message>
         ) : (
           <>
-            <div className={styles.latest}>
+            <div className={(styles.category, styles.latest)}>
               <p className={styles.heading}>New Products</p>
               <Container className={styles.productList}>
                 <section className={styles.latestProducts}>
-                  {latest.map((product) => (
-                    <div className={styles.flexItem} key={product._id}>
-                      <Product product={product} />
-                    </div>
-                  ))}
+                  {latest
+                    .reverse()
+                    .slice(0, 6)
+                    .map((product) => (
+                      <div className={styles.flexItem} key={product._id}>
+                        <Product product={product} />
+                      </div>
+                    ))}
                 </section>
               </Container>
             </div>
@@ -97,6 +105,21 @@ const HomeScreen = () => {
                 <Container className={styles.categoryList}>
                   <section className={styles.categoryItems}>
                     {kidFashion.map((product) => (
+                      <div className={styles.flexItem} key={product._id}>
+                        <Product product={product} />
+                      </div>
+                    ))}
+                  </section>
+                </Container>
+              </div>
+            )}
+
+            {phonesEtc.length !== 0 && (
+              <div className={(styles.category, styles.phonesEtc)}>
+                <p className={styles.heading}>Phones & Accessories</p>
+                <Container className={styles.categoryList}>
+                  <section className={styles.categoryItems}>
+                    {phonesEtc.map((product) => (
                       <div className={styles.flexItem} key={product._id}>
                         <Product product={product} />
                       </div>

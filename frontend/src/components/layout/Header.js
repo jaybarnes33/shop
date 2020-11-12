@@ -58,21 +58,6 @@ const Header = () => {
             </Navbar.Toggle>{" "}
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ml-auto">
-                <LinkContainer to="/cart">
-                  <Nav.Link className="nav-link">
-                    <i className="icon fas fa-shopping-cart"></i>
-                    <sup>
-                      <Badge pill variant="danger">
-                        {cartItems.length !== 0 &&
-                          cartItems.reduce(
-                            (acc, item) => acc + item.quantity,
-                            0
-                          )}
-                      </Badge>
-                    </sup>
-                  </Nav.Link>
-                </LinkContainer>
-
                 {userInfo ? (
                   <NavDropdown title={userInfo.name} id="username">
                     <LinkContainer to="/profile">
@@ -99,12 +84,35 @@ const Header = () => {
                     </NavDropdown.Item>
                   </NavDropdown>
                 ) : (
-                  <LinkContainer to="/signin">
-                    <Nav.Link>
-                      <i className="icon fa fa-user"></i>Sign In
-                    </Nav.Link>
-                  </LinkContainer>
+                  <>
+                    <NavDropdown
+                      title={<i className="icon fas fa-user"></i>}
+                      id="userMenu"
+                    >
+                      <LinkContainer to="/signin">
+                        <NavDropdown.Item>Sign In</NavDropdown.Item>
+                      </LinkContainer>
+
+                      <LinkContainer to="/register">
+                        <NavDropdown.Item>Register</NavDropdown.Item>
+                      </LinkContainer>
+                    </NavDropdown>
+                  </>
                 )}
+                <LinkContainer to="/cart">
+                  <Nav.Link className="nav-link">
+                    <i className="icon fas fa-shopping-cart"></i>
+                    <sup>
+                      <Badge pill variant="danger">
+                        {cartItems.length !== 0 &&
+                          cartItems.reduce(
+                            (acc, item) => acc + item.quantity,
+                            0
+                          )}
+                      </Badge>
+                    </sup>
+                  </Nav.Link>
+                </LinkContainer>
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -141,7 +149,19 @@ const Header = () => {
               <Nav className="mx-auto">
                 {userInfo ? (
                   <NavDropdown
-                    title={<i className="icon fas fa-user"></i>}
+                    title={
+                      <>
+                        <i className="icon fas fa-user"></i>
+                        <sup>
+                          <Badge>
+                            <i
+                              style={{ color: "green" }}
+                              class="fas fa-circle"
+                            ></i>
+                          </Badge>
+                        </sup>
+                      </>
+                    }
                     id="username"
                   >
                     <LinkContainer to="/profile">

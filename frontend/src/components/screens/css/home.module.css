@@ -3,6 +3,12 @@
   font-size: 1.5rem;
 }
 
+.latestProducts {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .categoryList,
 .productList {
   margin: 1.3rem 0;
@@ -35,26 +41,17 @@
   border-radius: 10px 10px 0 0;
 }
 
-.latest .heading {
-  background-color: orangered;
+.latest .heading,
+.womenFashion .heading,
+.phonesEtc .heading {
+  background-color: #f9813a;
   color: white;
   border-radius: 10px 10px 0 0;
 }
 
-.category .heading {
+.category .heading,
+.kidFashion .heading {
   background-color: black;
-  border-radius: 10px 10px 0 0;
-  color: white;
-}
-.latestProducts {
-  display: inline-flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 10px 25px;
-}
-
-.womenFashion .heading {
-  background-color: rgb(124, 13, 69);
   border-radius: 10px 10px 0 0;
   color: white;
 }

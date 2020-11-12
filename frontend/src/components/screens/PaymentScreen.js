@@ -47,6 +47,7 @@ const PaymentScreen = ({ history }) => {
               id="paypal"
               name="paymentMethod"
               value="MTN Momo"
+              disabled
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></Form.Check>
             <Form.Check
@@ -56,6 +57,7 @@ const PaymentScreen = ({ history }) => {
               id="paypal"
               name="paymentMethod"
               value="Vodafone Cash"
+              disabled
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></Form.Check>
           </Col>

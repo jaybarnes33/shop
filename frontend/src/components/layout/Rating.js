@@ -1,9 +1,8 @@
 import React from "react";
-
-import "./css/product.css";
+import styles from "../../misc.module.css";
 const Rating = ({ value, text, color }) => {
   return (
-    <div className="rating">
+    <div className={styles.rating}>
       <span>
         <i
           style={{ color }}

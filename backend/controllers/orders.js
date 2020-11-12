@@ -42,11 +42,55 @@ const getOrder = asyncHandler(async (req, res) => {
     "user",
     "name email"
   );
-  if (req.user._id.toString() === order.user._id.toString()) {
+  if (
+    req.user._id.toString() === order.user._id.toString() ||
+    req.user.isAdmin
+  ) {
     res.status(200).json(order);
   } else {
     throw Error("Order not found");
   }
 });
 
-export { createOrder, getOrder };
+// @desc get Orders
+// @GET  /api/orders/
+// @access Private/admin
+const getOrders = asyncHandler(async (req, res) => {
+  const orders = await Order.find({}).populate("user", "name id");
+  res.status(200).json(orders);
+});
+
+// @desc Send Order
+// @GET  /api/orders/:order_id/send
+// @access Private/admin
+const sendOrder = asyncHandler(async (req, res) => {
+  const order = await Order.findById(req.params.order_id);
+  if (order) {
+    order.isSent = true;
+    order.sentAt = Date.now();
+    const updatedOrder = await order.save();
+    res.json(updatedOrder);
+  } else {
+    res.status(404);
+    throw new Error("Order not found");
+  }
+});
+
+// @desc Mark order as delivered
+// @GET  /api/orders/:order_id/deliver
+// @access Private/admin
+const delivered = asyncHandler(async (req, res) => {
+  const order = await Order.findById(req.params.order_id);
+  if (order) {
+    order.isDelivered = true;
+    order.deliveredAt = Date.now();
+
+    const updatedOrder = await order.save();
+    res.json(updatedOrder);
+  } else {
+    res.status(404);
+    throw new Error("Order not found");
+  }
+});
+
+export { createOrder, getOrder, getOrders, sendOrder, delivered };
