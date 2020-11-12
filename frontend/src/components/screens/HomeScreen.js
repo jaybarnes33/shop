@@ -42,7 +42,9 @@ const HomeScreen = () => {
   );
 
   useEffect(() => {
-    dispatch(listProducts());
+    if (products.length === 0 && !products[0]) {
+      dispatch(listProducts());
+    }
   }, [dispatch]);
   return (
     <>
