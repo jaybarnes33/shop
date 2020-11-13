@@ -25,8 +25,8 @@
 }
 
 .flexItem {
-  width: 160px;
-  margin: 10px 15px;
+  width: 190px;
+  margin: 2px 5px 0 5px;
 }
 
 .productList {
@@ -73,7 +73,7 @@
 }
 @media (min-width: 320px) and (max-width: 600px) {
   .flexItem {
-    flex: 30%;
+    flex: 45%;
     flex-grow: 0;
   }
 }

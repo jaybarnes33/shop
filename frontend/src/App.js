@@ -23,7 +23,6 @@ const App = () => {
   return (
     <Router>
       <Header />
-
       <section className="app">
         <Route path="/" component={HomeScreen} exact />
         <Route path="/products/:id" component={ProductScreen} />
@@ -43,6 +42,7 @@ const App = () => {
           path="/admin/product/:product_id/edit"
           component={ProductEditScreen}
         />
+        <Route path="/search/:keyword" component={HomeScreen} />
       </section>
 
       <Footer />

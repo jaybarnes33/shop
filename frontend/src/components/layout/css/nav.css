@@ -5,16 +5,14 @@
 }
 
 header {
-  position: fixed;
-  top: 0;
   width: 100%;
+  padding: 10px;
   z-index: 1;
   background-color: white !important;
   box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.3);
 }
 .main-nav {
-  margin: 0 !important;
-  outline: none;
+  background-color: white !important;
 }
 
 .nav-link {
@@ -34,13 +32,13 @@ header {
 }
 
 @media screen and (min-width: 992px) {
-  .nav-mobile {
+  .mobile-only {
     display: none;
   }
 }
 
 @media screen and (max-width: 991px) {
-  .nav-desktop {
+  .desktop-only {
     display: none;
   }
 }

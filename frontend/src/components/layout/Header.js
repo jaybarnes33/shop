@@ -1,5 +1,6 @@
 import React from "react";
 import { LinkContainer } from "react-router-bootstrap";
+import { Route } from "react-router-dom";
 import {
   Image,
   Container,
@@ -11,6 +12,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import "./css/nav.css";
 import { logOut } from "../../actions/user";
+import SearchBox from "./SearchBox";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -26,10 +28,7 @@ const Header = () => {
   return (
     <>
       <header>
-        <Nav className="secondary-nav">
-          <Container></Container>
-        </Nav>
-        <Navbar className="nav-desktop" expand="lg" collapseOnSelect>
+        <Navbar className="desktop-only" expand="lg" collapseOnSelect>
           <Container>
             <LinkContainer to="/">
               <Navbar.Brand>
@@ -57,6 +56,9 @@ const Header = () => {
               </svg>
             </Navbar.Toggle>{" "}
             <Navbar.Collapse id="basic-navbar-nav">
+              <Route
+                render={({ history }) => <SearchBox history={history} />}
+              />
               <Nav className="ml-auto">
                 {userInfo ? (
                   <NavDropdown title={userInfo.name} id="username">
@@ -118,7 +120,7 @@ const Header = () => {
           </Container>
         </Navbar>
         {/* Mobile Nav */}
-        <Navbar className="main-nav nav-mobile" collapseOnSelect>
+        <Navbar className="main-nav mobile-only" collapseOnSelect>
           <Container>
             <LinkContainer to="/">
               <Navbar.Brand>
@@ -223,6 +225,11 @@ const Header = () => {
             </Navbar.Collapse>
           </Container>
         </Navbar>
+        <Nav className="mobile-only">
+          <Container>
+            <Route render={({ history }) => <SearchBox history={history} />} />
+          </Container>
+        </Nav>
       </header>
     </>
   );

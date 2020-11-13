@@ -5,7 +5,7 @@ import "./css/product.css";
 import { Link } from "react-router-dom";
 const Product = ({ product }) => {
   return (
-    <Card className="my-3 p-3">
+    <Card className="my-4 p-3">
       <Link to={`/products/${product._id}`}>
         <Card.Img
           style={{
@@ -27,10 +27,10 @@ const Product = ({ product }) => {
           </Card.Title>
         </Link>
         <Card.Text as="div">
-          {/* <Rating
+          <Rating
             value={product.rating}
             text={`${product.numReviews} reviews`}
-          /> */}
+          />
         </Card.Text>
         <Card.Text
           style={{ fontSize: "0.9rem", fontWeight: "bold", color: "black" }}

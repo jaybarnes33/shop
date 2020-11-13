@@ -1,14 +1,10 @@
 import React, { useEffect } from "react";
-import { Table, Button, Container, Row, Col, Image } from "react-bootstrap";
+import { Table, Button, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import Message from "../layout/Message";
 import Loader from "../layout/Loader";
-import {
-  listProducts,
-  deleteProduct,
-  createProduct,
-} from "../../actions/product";
+import { createProduct } from "../../actions/product";
 
 import { getOrders } from "../../actions/order";
 const OrderListScreen = ({ history, match }) => {
@@ -27,10 +23,6 @@ const OrderListScreen = ({ history, match }) => {
       dispatch(getOrders());
     }
   }, [dispatch, history, userInfo]);
-
-  const createProductHandler = () => {
-    dispatch(createProduct());
-  };
 
   return (
     <Container>

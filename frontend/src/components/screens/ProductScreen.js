@@ -10,7 +10,6 @@ import {
   Card,
   Button,
   Container,
-  Toast,
 } from "react-bootstrap";
 import Rating from "../layout/Rating";
 import Loader from "../layout/Loader";
@@ -85,7 +84,11 @@ const ProductScreen = ({ match, history }) => {
       ) : (
         <>
           <Row>
-            <Col lg={5} md={4}>
+            <Col
+              lg={5}
+              md={4}
+              style={{ display: "flex", justifyContent: "center" }}
+            >
               <Image
                 src={product.image}
                 alt={product.name}
