@@ -34,7 +34,7 @@ export const updateProduct = asyncHandler(async (req, res) => {
     product.image = req.body.image;
     product.category = req.body.category;
     product.price = req.body.price;
-    product.brand = req.body.image;
+    product.brand = req.body.brand;
     product.countInStock = req.body.countInStock;
     product.description = req.body.description;
 
@@ -47,15 +47,15 @@ export const updateProduct = asyncHandler(async (req, res) => {
 // @Desc Get Products
 // Access Public
 export const getProducts = asyncHandler(async (req, res) => {
-  const keyword = req.query.keyword
-    ? {
-        name: {
-          $regex: req.query.keyword,
-          $options: "i",
-        },
-      }
-    : {};
-  const products = await Product.find({ ...keyword });
+  const keyword = req.query.keyword;
+
+  const products = await Product.find({
+    $or: [
+      { name: { $regex: keyword, $options: "i" } },
+      { category: { $regex: keyword, $options: "i" } },
+      { brand: { $regex: keyword, $options: "i" } },
+    ],
+  });
 
   res.json(products);
 });

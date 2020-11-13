@@ -6,8 +6,8 @@
 
 header {
   width: 100%;
-  padding: 10px;
-  z-index: 1;
+  padding: 10px 0;
+
   background-color: white !important;
   box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.3);
 }
@@ -29,6 +29,30 @@ header {
 
 .secondary-nav {
   text-align: right;
+}
+
+.search-flex-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.search-flex-container .form-control {
+  border: none !important;
+}
+
+.search-flex-container .form-control::focus {
+  border: none !important;
+  outline: none;
+}
+
+.search-flex-container button {
+  padding: 15px;
+  width: 40px;
+  height: 45px;
+  border-radius: 0 10px 10px 0;
 }
 
 @media screen and (min-width: 992px) {

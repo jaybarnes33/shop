@@ -14,18 +14,24 @@ const SearchBox = ({ history }) => {
   };
 
   return (
-    <Form style={{ width: "100%" }} onSubmit={submitHandler} inline>
+    <Form
+      className="search-flex-container"
+      style={{ width: "100%" }}
+      onSubmit={submitHandler}
+    >
       <Form.Control
-        style={{ width: "80%" }}
         type="search"
         name="q"
         placeholder="Search for item by name"
         onChange={(e) => setKeyword(e.target.value)}
-        className="mr-sm-2 ml-sm-5"
+        className=""
       ></Form.Control>
       <Button
-        className="btn-danger"
-        style={{ width: "40px", padding: "10px", marginLeft: "-10px" }}
+        className="btn-warning"
+        style={{
+          padding: "10px",
+          marginLeft: "-12px",
+        }}
         type="submit"
       >
         <i className="fa fa-search"></i>
