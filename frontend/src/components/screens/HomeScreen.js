@@ -56,76 +56,88 @@ const HomeScreen = () => {
           <>
             <div className={(styles.category, styles.latest)}>
               <p className={styles.heading}>New Products</p>
-              <Container className={styles.productList}>
+              <div className={styles.productList}>
                 <section className={styles.latestProducts}>
                   {latest
                     .reverse()
-                    .slice(0, 6)
+                    .slice(0, 7)
                     .map((product) => (
                       <div className={styles.flexItem} key={product._id}>
                         <Product product={product} />
                       </div>
                     ))}
                 </section>
-              </Container>
+              </div>
             </div>
             {electronics.length !== 0 && (
               <div className={styles.category}>
                 <p className={styles.heading}>Electronics</p>
-                <Container className={styles.categoryList}>
+                <div className={styles.categoryList}>
                   <section className={styles.categoryItems}>
-                    {electronics.map((product) => (
-                      <div className={styles.flexItem} key={product._id}>
-                        <Product product={product} />
-                      </div>
-                    ))}
+                    {electronics
+                      .reverse()
+                      .slice(0, 4)
+                      .map((product) => (
+                        <div className={styles.flexItem} key={product._id}>
+                          <Product product={product} />
+                        </div>
+                      ))}
                   </section>
-                </Container>
+                </div>
               </div>
             )}
 
             {womenFashion.length !== 0 && (
               <div className={(styles.category, styles.womenFashion)}>
                 <p className={styles.heading}>Women's Fashion</p>
-                <Container className={styles.categoryList}>
+                <div className={styles.categoryList}>
                   <section className={styles.categoryItems}>
-                    {womenFashion.map((product) => (
-                      <div className={styles.flexItem} key={product._id}>
-                        <Product product={product} />
-                      </div>
-                    ))}
+                    {womenFashion
+                      .reverse()
+                      .slice(0, 4)
+                      .map((product) => (
+                        <div className={styles.flexItem} key={product._id}>
+                          <Product product={product} />
+                        </div>
+                      ))}
                   </section>
-                </Container>
+                </div>
               </div>
             )}
 
             {kidFashion.length !== 0 && (
               <div className={(styles.category, styles.kidFashion)}>
                 <p className={styles.heading}>Kids's Fashion</p>
-                <Container className={styles.categoryList}>
+                <div className={styles.categoryList}>
                   <section className={styles.categoryItems}>
-                    {kidFashion.map((product) => (
-                      <div className={styles.flexItem} key={product._id}>
-                        <Product product={product} />
-                      </div>
-                    ))}
+                    {kidFashion
+                      .reverse()
+                      .slice(0, 4)
+                      .map((product) => (
+                        <div className={styles.flexItem} key={product._id}>
+                          <Product product={product} />
+                        </div>
+                      ))}
                   </section>
-                </Container>
+                </div>
               </div>
             )}
 
             {phonesEtc.length !== 0 && (
               <div className={(styles.category, styles.phonesEtc)}>
                 <p className={styles.heading}>Phones & Accessories</p>
-                <Container className={styles.categoryList}>
+                <div className={styles.categoryList}>
                   <section className={styles.categoryItems}>
-                    {phonesEtc.map((product) => (
-                      <div className={styles.flexItem} key={product._id}>
-                        <Product product={product} />
-                      </div>
-                    ))}
+                    {phonesEtc
+                      .reverse()
+                      .slice(0, 4)
+                      .map((product) => (
+                        <div className={styles.flexItem} key={product._id}>
+                          <Product product={product} />
+                        </div>
+                      ))}
                   </section>
-                </Container>
+                </div>
               </div>
             )}
           </>

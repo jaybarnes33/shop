@@ -178,7 +178,7 @@ const ProductScreen = ({ match, history }) => {
             <>
               <div className={styles.sameCategory}>
                 <p className={styles.heading}>Also in this category</p>
-                <Container className={styles.categoryContainer}>
+                <div className={styles.categoryContainer}>
                   <section className={styles.categoryItems}>
                     {sameCategory.slice(0, 6).map((product) => (
                       <div className={styles.flexItem} key={product._id}>
@@ -186,7 +186,7 @@ const ProductScreen = ({ match, history }) => {
                       </div>
                     ))}
                   </section>
-                </Container>
+                </div>
               </div>
             </>
           )}

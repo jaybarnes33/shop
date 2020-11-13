@@ -8,12 +8,15 @@ const Product = ({ product }) => {
     <Card className="my-3 p-3">
       <Link to={`/products/${product._id}`}>
         <Card.Img
-          style={{ height: "150px", borderRadius: "2px", background: "none" }}
+          style={{
+            height: "160px",
+            borderRadius: "2px",
+            background: "none",
+          }}
           src={product.image}
           variant="top"
           rounded="true"
           loading="lazy"
-          fluid="true"
           alt={product.name}
         />
       </Link>
@@ -24,12 +27,16 @@ const Product = ({ product }) => {
           </Card.Title>
         </Link>
         <Card.Text as="div">
-          <Rating
+          {/* <Rating
             value={product.rating}
             text={`${product.numReviews} reviews`}
-          />
+          /> */}
         </Card.Text>
-        <Card.Text as="h5">GH₵ {product.price}</Card.Text>
+        <Card.Text
+          style={{ fontSize: "0.9rem", fontWeight: "bold", color: "black" }}
+        >
+          GH₵ {product.price}
+        </Card.Text>
       </Card.Body>
     </Card>
   );
