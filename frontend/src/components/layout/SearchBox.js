@@ -22,7 +22,7 @@ const SearchBox = ({ history }) => {
       <Form.Control
         type="search"
         name="q"
-        placeholder="Search for item by name"
+        placeholder="Search for item by name, brand or category."
         onChange={(e) => setKeyword(e.target.value)}
         className=""
       ></Form.Control>
