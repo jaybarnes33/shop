@@ -14,41 +14,40 @@ const HomeScreen = ({ match }) => {
 
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
-  if (!keyword) {
-    var electronics = products.filter(
-      (product) =>
-        product.category === "Electronics" &&
-        product.image !== "/images/sample.jpg"
-    );
 
-    var womenFashion = products.filter(
-      (product) =>
-        product.category === "Women's Fashion" &&
-        product.image !== "/images/sample.jpg"
-    );
+  const electronics = products.filter(
+    (product) =>
+      product.category === "Electronics" &&
+      product.image !== "/images/sample.jpg"
+  );
 
-    var kidFashion = products.filter(
-      (product) =>
-        product.category === "Kid's Fashion" &&
-        product.image !== "/images/sample.jpg"
-    );
+  const womenFashion = products.filter(
+    (product) =>
+      product.category === "Women's Fashion" &&
+      product.image !== "/images/sample.jpg"
+  );
 
-    var phonesEtc = products.filter(
-      (product) =>
-        product.category === "Phones & Accessories" &&
-        product.image !== "/images/sample.jpg"
-    );
-    var latest = products.filter(
-      (product) => product.image !== "/images/sample.jpg"
-    );
-  }
+  const kidFashion = products.filter(
+    (product) =>
+      product.category === "Kid's Fashion" &&
+      product.image !== "/images/sample.jpg"
+  );
+
+  const phonesEtc = products.filter(
+    (product) =>
+      product.category === "Phones & Accessories" &&
+      product.image !== "/images/sample.jpg"
+  );
+  const latest = products.filter(
+    (product) => product.image !== "/images/sample.jpg"
+  );
 
   useEffect(() => {
     dispatch(listProducts(keyword));
   }, [dispatch, keyword]);
   return (
     <>
-      <Banner src="./images/bg2mobi.jpg" />
+      {!keyword && <Banner src="./images/bg2mobi.jpg" />}
       <Container>
         {loading ? (
           <Loader />
@@ -79,7 +78,7 @@ const HomeScreen = ({ match }) => {
                 </div>
               </div>
             )}
-            {latest && latest.length !== 0 && (
+            {!keyword && latest && latest.length !== 0 && (
               <div className={(styles.category, styles.latest)}>
                 <p className={styles.heading}>New Products</p>
                 <div className={styles.productList}>
@@ -97,7 +96,7 @@ const HomeScreen = ({ match }) => {
               </div>
             )}
 
-            {electronics && electronics.length !== 0 && (
+            {!keyword && electronics && electronics.length !== 0 && (
               <div className={styles.category}>
                 <p className={styles.heading}>Electronics</p>
                 <div className={styles.categoryList}>
@@ -115,7 +114,7 @@ const HomeScreen = ({ match }) => {
               </div>
             )}
 
-            {womenFashion && womenFashion.length !== 0 && (
+            {!keyword && womenFashion && womenFashion.length !== 0 && (
               <div className={(styles.category, styles.womenFashion)}>
                 <p className={styles.heading}>Women's Fashion</p>
                 <div className={styles.categoryList}>
@@ -133,7 +132,7 @@ const HomeScreen = ({ match }) => {
               </div>
             )}
 
-            {kidFashion && kidFashion.length !== 0 && (
+            {!keyword && kidFashion && kidFashion.length !== 0 && (
               <div className={(styles.category, styles.kidFashion)}>
                 <p className={styles.heading}>Kids's Fashion</p>
                 <div className={styles.categoryList}>
@@ -151,7 +150,7 @@ const HomeScreen = ({ match }) => {
               </div>
             )}
 
-            {phonesEtc && phonesEtc.length !== 0 && (
+            {!keyword && phonesEtc && phonesEtc.length !== 0 && (
               <div className={(styles.category, styles.phonesEtc)}>
                 <p className={styles.heading}>Phones & Accessories</p>
                 <div className={styles.categoryList}>

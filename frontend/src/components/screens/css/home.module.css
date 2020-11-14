@@ -55,14 +55,14 @@
 .latest .heading,
 .womenFashion .heading,
 .phonesEtc .heading {
-  background-color: #f9813a;
+  background-color: black;
   color: white;
   border-radius: 10px 10px 0 0;
 }
 
 .category .heading,
 .kidFashion .heading {
-  background-color: black;
+  background-color: goldenrod;
   border-radius: 10px 10px 0 0;
   color: white;
 }
