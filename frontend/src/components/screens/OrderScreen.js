@@ -90,7 +90,16 @@ const OrderScreen = ({ match, history }) => {
   ) : (
     <Container>
       <Row>
-        <h2 className="py-3">Order {order._id}</h2>
+        <h2
+          style={{
+            fontSize: "1.6rem",
+            wordBreak: "break-all",
+            wordWrap: "break-word",
+          }}
+          className="py-3"
+        >
+          Order {order._id}
+        </h2>
         <Col md={8}>
           <ListGroup variant="flush">
             <ListGroup.Item>
