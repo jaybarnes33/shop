@@ -29,8 +29,8 @@ const SearchBox = ({ history }) => {
       <Button
         className="btn-warning"
         style={{
-          padding: "10px",
-          marginLeft: "-12px",
+          padding: "12px",
+          marginLeft: "-15px",
         }}
         type="submit"
       >

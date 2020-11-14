@@ -21,32 +21,35 @@ import ProductEditScreen from "./components/screens/ProductEditScreen";
 import OrderListScreen from "./components/screens/OrderListScreen";
 const App = () => {
   return (
-    <Router>
-      <Header />
-      <section className="app">
-        <Route path="/" component={HomeScreen} exact />
-        <Route path="/products/:id" component={ProductScreen} />
-        <Route path="/signin" component={LoginScreen} />
-        <Route path="/register" component={RegisterScreen} />
-        <Route path="/profile" component={ProfileScreen} />
-        <Route path="/cart/:id?" component={CartScreen} />
-        <Route path="/shipping" component={ShippingScreen} />
-        <Route path="/placeorder" component={PlaceOrderScreen} />
-        <Route path="/payment" component={PaymentScreen} />
-        <Route path="/order/:order_id" component={OrderScreen} />
-        <Route path="/admin/users" component={UserListScreen} />
-        <Route path="/admin/products" component={ProductListScreen} />
-        <Route path="/admin/orders" component={OrderListScreen} />
-        <Route path="/admin/user/:user_id/edit" component={UserEditScreen} />
-        <Route
-          path="/admin/product/:product_id/edit"
-          component={ProductEditScreen}
-        />
-        <Route path="/search/:keyword" component={HomeScreen} />
-      </section>
+    <>
+      {window.scroll(0, 0)}
+      <Router>
+        <Header />
+        <section className="app">
+          <Route path="/" component={HomeScreen} exact />
+          <Route path="/products/:id" component={ProductScreen} />
+          <Route path="/signin" component={LoginScreen} />
+          <Route path="/register" component={RegisterScreen} />
+          <Route path="/profile" component={ProfileScreen} />
+          <Route path="/cart/:id?" component={CartScreen} />
+          <Route path="/shipping" component={ShippingScreen} />
+          <Route path="/placeorder" component={PlaceOrderScreen} />
+          <Route path="/payment" component={PaymentScreen} />
+          <Route path="/order/:order_id" component={OrderScreen} />
+          <Route path="/admin/users" component={UserListScreen} />
+          <Route path="/admin/products" component={ProductListScreen} />
+          <Route path="/admin/orders" component={OrderListScreen} />
+          <Route path="/admin/user/:user_id/edit" component={UserEditScreen} />
+          <Route
+            path="/admin/product/:product_id/edit"
+            component={ProductEditScreen}
+          />
+          <Route path="/search/:keyword" component={HomeScreen} />
+        </section>
 
-      <Footer />
-    </Router>
+        <Footer />
+      </Router>
+    </>
   );
 };
 
