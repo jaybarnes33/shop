@@ -7,7 +7,7 @@ const Banner = (props) => {
       <div className={styles.bannerText}>
         <>
           Welcome to Atrady, <br />
-          <span>Find all you need here.</span>
+          <span>The number place where all your shopping needs are met.</span>
         </>
       </div>
     </div>

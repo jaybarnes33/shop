@@ -22,7 +22,6 @@ import OrderListScreen from "./components/screens/OrderListScreen";
 const App = () => {
   return (
     <>
-      {window.scroll(0, 0)}
       <Router>
         <Header />
         <section className="app">

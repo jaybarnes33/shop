@@ -14,7 +14,8 @@ import {
 import Rating from "../layout/Rating";
 import Loader from "../layout/Loader";
 import Message from "../layout/Message";
-
+import Product from "../layout/Product";
+import QuantitySelector from "../layout/QuantitySelector";
 import {
   PRODUCT_DETAILS_RESET,
   PRODUCT_CREATE_REVIEW_RESET,
@@ -24,7 +25,6 @@ import { listProduct, createReview, listProducts } from "../../actions/product";
 import styles from "./css/product.module.css";
 
 import { addToCart } from "../../actions/cart";
-import Product from "../layout/Product";
 
 const ProductScreen = ({ match, history }) => {
   const [quantity, setQuantity] = useState(1);
@@ -33,6 +33,10 @@ const ProductScreen = ({ match, history }) => {
 
   const dispatch = useDispatch();
 
+  //
+  const handleChange = (value) => {
+    setQuantity(value);
+  };
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
 
@@ -144,7 +148,7 @@ const ProductScreen = ({ match, history }) => {
                       <Row>
                         <Col>Quantity: </Col>
                         <Col>
-                          <Form.Control
+                          {/* <Form.Control
                             as="select"
                             className={styles.select}
                             value={quantity}
@@ -159,7 +163,12 @@ const ProductScreen = ({ match, history }) => {
                                 </option>
                               )
                             )}
-                          </Form.Control>
+                          </Form.Control> */}
+                          <QuantitySelector
+                            stock={product.countInStock}
+                            value={quantity}
+                            onChange={handleChange}
+                          />
                         </Col>
                       </Row>
                     </ListGroup.Item>
