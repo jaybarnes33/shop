@@ -20,6 +20,7 @@ const userSchema = mongoose.Schema(
       required: true,
       unique: true,
     },
+    cart: [],
   },
   {
     timestamps: true,

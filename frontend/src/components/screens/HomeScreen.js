@@ -27,6 +27,12 @@ const HomeScreen = ({ match }) => {
       product.image !== "/images/sample.jpg"
   );
 
+  const menFashion = products.filter(
+    (product) =>
+      product.category === "Men's Fashion" &&
+      product.image !== "/images/sample.jpg"
+  );
+
   const kidFashion = products.filter(
     (product) =>
       product.category === "Kid's Fashion" &&
@@ -120,6 +126,24 @@ const HomeScreen = ({ match }) => {
                 <div className={styles.categoryList}>
                   <section className={styles.categoryItems}>
                     {womenFashion
+                      .reverse()
+                      .slice(0, 4)
+                      .map((product) => (
+                        <div className={styles.flexItem} key={product._id}>
+                          <Product product={product} />
+                        </div>
+                      ))}
+                  </section>
+                </div>
+              </div>
+            )}
+
+            {!keyword && menFashion && menFashion.length !== 0 && (
+              <div className={(styles.category, styles.menFashion)}>
+                <p className={styles.heading}>Men's Fashion</p>
+                <div className={styles.categoryList}>
+                  <section className={styles.categoryItems}>
+                    {menFashion
                       .reverse()
                       .slice(0, 4)
                       .map((product) => (

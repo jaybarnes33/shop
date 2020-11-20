@@ -165,6 +165,22 @@ const updateUser = asyncHandler(async (req, res) => {
   }
 });
 
+// @Desc add to Cart
+// @route PUT /api/users/:user_id/cart
+// @access Private
+const addToCart = asyncHandler(async (req, res) => {
+  const cartItems = req.body;
+  const user = await User.findById(req.params.user_id).select("-password");
+  if (!user) {
+    res.status(404);
+    throw new Error("User not found");
+  } else {
+    user.cart.push(...cartItems);
+    const updatedUser = await user.save();
+    res.status(201).json(updatedUser);
+  }
+});
+
 export {
   registerUser,
   loginUser,
@@ -174,4 +190,5 @@ export {
   deleteUser,
   getUser,
   updateUser,
+  addToCart,
 };
