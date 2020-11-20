@@ -4,8 +4,15 @@
 
 .app {
   min-height: 90vh;
+  padding-top: 80px;
 }
 
 * {
   margin: 0;
+}
+
+@media screen and (max-width: 991px) {
+  .app {
+    padding-top: 130px;
+  }
 }

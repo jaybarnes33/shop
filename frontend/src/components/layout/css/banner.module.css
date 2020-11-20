@@ -2,11 +2,12 @@
   /* min-height: 40vh;
   height: 40vh; */
   background-image: url("/images/main.png"),
-    linear-gradient(
-      109.6deg,
-      rgba(255, 219, 47, 1) 11.2%,
-      rgba(244, 253, 0, 1) 100.2%
+    radial-gradient(
+      circle farthest-corner at 10% 20%,
+      rgba(147, 230, 241, 1) 0%,
+      rgba(145, 192, 241, 1) 45.5%
     );
+
   background-position: bottom;
   background-size: contain;
   background-repeat: no-repeat;

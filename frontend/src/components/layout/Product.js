@@ -6,12 +6,13 @@ import { Link } from "react-router-dom";
 const Product = ({ product }) => {
   return (
     <Card className="my-4 p-3">
-      <Link to={`/products/${product._id}`}>
+      <Link to={`/products/${product._id}/${product.name}`}>
         <Card.Img
           style={{
-            height: "160px",
+            height: "120px",
             borderRadius: "2px",
             background: "none",
+            objectFit: "contain",
           }}
           src={product.image}
           variant="top"
@@ -21,7 +22,7 @@ const Product = ({ product }) => {
         />
       </Link>
       <Card.Body>
-        <Link to={`/products/${product._id}`}>
+        <Link to={`/products/${product._id}/${product.name}`}>
           <Card.Title as="div">
             <strong>{product.name.substring(0, 13)}...</strong>
           </Card.Title>

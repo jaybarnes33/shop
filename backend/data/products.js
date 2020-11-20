@@ -116,7 +116,7 @@ const products = [
     _id: "5fa956f15d36a987b9771f21",
     name: "Crochet Bralette",
     user: "5fa85bcd0977254079af972d",
-    image: "/images/bralette.jpg",
+    image: "/images/bralette.png",
     brand: "KlassyKidz",
     category: "Women's Fashion",
     description: "A cool and trendy crochet top.",
@@ -184,7 +184,7 @@ const products = [
     _id: "5fa989f33ae15babcd8fd462",
     name: "2pc Crochet Suit",
     user: "5fa85bcd0977254079af972d",
-    image: "/images/crochet.jpg",
+    image: "/images/crochet.png",
     brand: "Crochet Couture",
     category: "Women's Fashion",
     description:

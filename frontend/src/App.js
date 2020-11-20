@@ -26,7 +26,7 @@ const App = () => {
         <Header />
         <section className="app">
           <Route path="/" component={HomeScreen} exact />
-          <Route path="/products/:id" component={ProductScreen} />
+          <Route path="/products/:id/:name" component={ProductScreen} />
           <Route path="/signin" component={LoginScreen} />
           <Route path="/register" component={RegisterScreen} />
           <Route path="/profile" component={ProfileScreen} />

@@ -74,7 +74,7 @@ const HomeScreen = ({ match }) => {
 
                     {products
                       .reverse()
-                      .slice(0, 7)
+                      .slice(0, 8)
                       .map((product) => (
                         <div className={styles.flexItem} key={product._id}>
                           <Product product={product} />
@@ -91,7 +91,7 @@ const HomeScreen = ({ match }) => {
                   <section className={styles.latestProducts}>
                     {latest
                       .reverse()
-                      .slice(0, 7)
+                      .slice(0, 12)
                       .map((product) => (
                         <div className={styles.flexItem} key={product._id}>
                           <Product product={product} />
