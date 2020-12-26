@@ -25,7 +25,9 @@ const Product = ({ product }) => {
 
         <Card.Body>
           <Card.Title as="div">
-            <strong>{product.name.substring(0, 13)}...</strong>
+            <h6>
+              <strong>{product.name.substring(0, 13)}...</strong>
+            </h6>
           </Card.Title>
 
           <Card.Text as="div">

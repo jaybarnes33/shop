@@ -3,15 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import Product from "../layout/Product";
 import Loader from "../layout/Loader";
-import SearchItem from "../layout/SearchItem";
+
 import Message from "../layout/Message";
 import Banner from "../layout/Banner";
 import { listProducts } from "../../actions/product";
 
 import styles from "./css/home.module.css";
-import { addToCart } from "../../actions/cart";
+
 const HomeScreen = ({ match }) => {
-  const keyword = match.params.keyword;
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList);
@@ -51,11 +50,11 @@ const HomeScreen = ({ match }) => {
   );
 
   useEffect(() => {
-    dispatch(listProducts(keyword));
-  }, [dispatch, keyword]);
+    dispatch(listProducts());
+  }, [dispatch]);
   return (
     <div className={styles.container}>
-      {!keyword && <Banner src="./images/bg2mobi.jpg" />}
+      {<Banner src="./images/bg2mobi.jpg" />}
       <Container>
         {loading ? (
           <Loader />
@@ -63,31 +62,7 @@ const HomeScreen = ({ match }) => {
           <Message variant="danger">{error}</Message>
         ) : (
           <>
-            {keyword && (
-              <div className={styles.search}>
-                <p className={styles.heading}>
-                  {`Search Results for "${keyword}"`}{" "}
-                  {products.length !== 0 && `${products.length} items found`}
-                </p>
-                <div className={styles.searchList}>
-                  <section className={styles.searchItems}>
-                    <Container>
-                      {products.length == 0 &&
-                        `No products matching your search "${keyword}" found`}
-
-                      {products
-                        .reverse()
-                        .slice(0, 8)
-                        .map((product) => (
-                          <SearchItem key={product._id} item={product} />
-                        ))}
-                    </Container>
-                  </section>
-                </div>
-              </div>
-            )}
-
-            {!keyword && latest && latest.length !== 0 && (
+            {latest && latest.length !== 0 && (
               <div className={styles.category}>
                 <p className={styles.heading}>New Products</p>
                 <div className={styles.productList}>
@@ -104,8 +79,7 @@ const HomeScreen = ({ match }) => {
                 </div>
               </div>
             )}
-
-            {!keyword && electronics && electronics.length !== 0 && (
+            {electronics && electronics.length !== 0 && (
               <div className={styles.category}>
                 <p className={styles.heading}>Electronics</p>
                 <div className={styles.categoryList}>
@@ -122,8 +96,7 @@ const HomeScreen = ({ match }) => {
                 </div>
               </div>
             )}
-
-            {!keyword && womenFashion && womenFashion.length !== 0 && (
+            {womenFashion && womenFashion.length !== 0 && (
               <div className={styles.category}>
                 <p className={styles.heading}>Women's Fashion</p>
                 <div className={styles.categoryList}>
@@ -140,8 +113,7 @@ const HomeScreen = ({ match }) => {
                 </div>
               </div>
             )}
-
-            {!keyword && menFashion && menFashion.length !== 0 && (
+            {menFashion && menFashion.length !== 0 && (
               <div className={styles.category}>
                 <p className={styles.heading}>Men's Fashion</p>
                 <div className={styles.categoryList}>
@@ -158,8 +130,7 @@ const HomeScreen = ({ match }) => {
                 </div>
               </div>
             )}
-
-            {!keyword && kidFashion && kidFashion.length !== 0 && (
+            {kidFashion && kidFashion.length !== 0 && (
               <div className={styles.category}>
                 <p className={styles.heading}>Kids's Fashion</p>
                 <div className={styles.categoryList}>
@@ -176,8 +147,7 @@ const HomeScreen = ({ match }) => {
                 </div>
               </div>
             )}
-
-            {!keyword && phonesEtc && phonesEtc.length !== 0 && (
+            {phonesEtc && phonesEtc.length !== 0 && (
               <div className={styles.category}>
                 <p className={styles.heading}>Phones & Accessories</p>
                 <div className={styles.categoryList}>

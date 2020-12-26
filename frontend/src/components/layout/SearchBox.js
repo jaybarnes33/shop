@@ -23,7 +23,7 @@ const SearchBox = ({ history }) => {
         className=""
       ></Form.Control>
       <Button
-        variant="danger"
+        variant="primary"
         style={{
           padding: "12px",
           marginLeft: "-15px",
