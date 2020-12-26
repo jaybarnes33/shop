@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col, Image } from "react-bootstrap";
 import Product from "../layout/Product";
 import Loader from "../layout/Loader";
+import SearchItem from "../layout/SearchItem";
 import Message from "../layout/Message";
 import Banner from "../layout/Banner";
 import { listProducts } from "../../actions/product";
@@ -62,29 +63,30 @@ const HomeScreen = ({ match }) => {
         ) : (
           <>
             {keyword && (
-              <div className={(styles.category, styles.latest)}>
+              <div className={(styles.search, styles.latest)}>
                 <p className={styles.heading}>
                   {`Search Results for "${keyword}"`}{" "}
                   {products.length !== 0 && `${products.length} items found`}
                 </p>
-                <div className={styles.categoryList}>
-                  <section className={styles.categoryItems}>
-                    {products.length == 0 &&
-                      `No products matching your search "${keyword}" found`}
+                <div className={styles.searchList}>
+                  <section className={styles.searchItems}>
+                    <Container>
+                      {products.length == 0 &&
+                        `No products matching your search "${keyword}" found`}
 
-                    {products
-                      .reverse()
-                      .slice(0, 8)
-                      .map((product) => (
-                        <div className={styles.flexItem} key={product._id}>
-                          <Product product={product} />
-                        </div>
-                      ))}
+                      {products
+                        .reverse()
+                        .slice(0, 8)
+                        .map((product) => (
+                          <SearchItem key={product._id} item={product} />
+                        ))}
+                    </Container>
                   </section>
                 </div>
               </div>
             )}
-            {!keyword && latest && latest.length !== 0 && (
+
+            {!latest && latest.length !== 0 && (
               <div className={(styles.category, styles.latest)}>
                 <p className={styles.heading}>New Products</p>
                 <div className={styles.productList}>

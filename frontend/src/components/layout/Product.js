@@ -4,15 +4,17 @@ import Rating from "./Rating";
 import "./css/product.css";
 import { Link } from "react-router-dom";
 const Product = ({ product }) => {
+  const addDecimals = (num) => {
+    return (Math.round(num * 100) / 100).toFixed(2);
+  };
+
   return (
     <Card className="my-4 p-3">
       <Link to={`/products/${product._id}/${product.name}`}>
         <Card.Img
           style={{
-            height: "120px",
             borderRadius: "2px",
             background: "none",
-            objectFit: "contain",
           }}
           src={product.image}
           variant="top"
@@ -36,7 +38,7 @@ const Product = ({ product }) => {
         <Card.Text
           style={{ fontSize: "0.9rem", fontWeight: "bold", color: "black" }}
         >
-          GH₵ {product.price}
+          GH₵ {addDecimals(product.price)}
         </Card.Text>
       </Card.Body>
     </Card>

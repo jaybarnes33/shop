@@ -35,7 +35,7 @@ const ProductScreen = ({ match, history }) => {
 
   //
   const handleChange = (value) => {
-    setQuantity(value);
+    setQuantity(Number(value));
   };
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
@@ -148,22 +148,6 @@ const ProductScreen = ({ match, history }) => {
                       <Row>
                         <Col>Quantity: </Col>
                         <Col>
-                          {/* <Form.Control
-                            as="select"
-                            className={styles.select}
-                            value={quantity}
-                            onChange={(e) => {
-                              setQuantity(Number(e.target.value));
-                            }}
-                          >
-                            {[...Array(product.countInStock).keys()].map(
-                              (x) => (
-                                <option key={x + 1} value={x + 1}>
-                                  {x + 1}
-                                </option>
-                              )
-                            )}
-                          </Form.Control> */}
                           <QuantitySelector
                             stock={product.countInStock}
                             value={quantity}
@@ -173,6 +157,12 @@ const ProductScreen = ({ match, history }) => {
                       </Row>
                     </ListGroup.Item>
                   )}
+                  {String(product.category)
+                    .toLowerCase()
+                    .includes("fashion") && (
+                    <ListGroup.Item>Size:</ListGroup.Item>
+                  )}
+
                   <ListGroup.Item>
                     <Button
                       onClick={addToCartHandler}

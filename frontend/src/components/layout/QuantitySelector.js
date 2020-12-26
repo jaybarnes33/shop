@@ -23,7 +23,10 @@ const QuantitySelector = ({ stock, onChange, value: quantity }) => {
         style={{ marginRight: "10px" }}
         className="sign fa fa-plus"
       ></i>
-      <Form.Control value={quantity} onChange={handleChange}></Form.Control>
+      <Form.Control
+        value={Number(quantity)}
+        onChange={handleChange}
+      ></Form.Control>
       <i
         onClick={subtractFromQuantity}
         style={{ marginLeft: "10px" }}

@@ -52,7 +52,6 @@ const OrderScreen = ({ match, history }) => {
     paymentMethod,
     shippingPrice,
     itemsPrice,
-    taxPrice,
     totalPrice,
     user,
   } = order;
@@ -200,12 +199,7 @@ const OrderScreen = ({ match, history }) => {
                   <Col>GH₵{addDecimals(shippingPrice)}</Col>
                 </Row>
               </ListGroup.Item>
-              <ListGroup.Item>
-                <Row>
-                  <Col>Tax</Col>
-                  <Col>GH₵{addDecimals(taxPrice)}</Col>
-                </Row>
-              </ListGroup.Item>
+
               <ListGroup.Item>
                 <Row>
                   <Col className={styles.bold}>Total</Col>
@@ -237,7 +231,7 @@ const OrderScreen = ({ match, history }) => {
             )}
             {userInfo &&
               userInfo.isAdmin &&
-              // order.isPaid &&
+              order.isPaid &&
               !order.isSent &&
               !order.isDelivered && (
                 <ListGroup.Item>

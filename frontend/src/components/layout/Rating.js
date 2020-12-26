@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../../misc.module.css";
 const Rating = ({ value, text, color }) => {
   return (
-    <div className={styles.rating}>
+    <div style={{ marginTop: "10px" }} className={styles.rating}>
       <span>
         <i
           style={{ color }}

@@ -29,6 +29,9 @@ const CartScreen = ({ match, location, history }) => {
     history.push("/signin?redirect=shipping");
   };
 
+  const addDecimals = (num) => {
+    return (Math.round(num * 100) / 100).toFixed(2);
+  };
   return (
     <Container>
       <Link className="btn btn-dark my-3" to="/">
@@ -57,7 +60,7 @@ const CartScreen = ({ match, location, history }) => {
                         {item.name.substring(0, 13)}...
                       </Link>
                     </Col>
-                    <Col xs={3}>GH₵{item.price}</Col>
+                    <Col xs={3}>GH₵{addDecimals(item.price)}</Col>
                     <Col xs={2}>
                       {" "}
                       <Form.Control
@@ -104,9 +107,14 @@ const CartScreen = ({ match, location, history }) => {
                   items
                   <br />
                   GH₵
-                  {cartItems
-                    .reduce((acc, item) => acc + item.quantity * item.price, 0)
-                    .toFixed(2)}
+                  {addDecimals(
+                    cartItems
+                      .reduce(
+                        (acc, item) => acc + item.quantity * item.price,
+                        0
+                      )
+                      .toFixed(2)
+                  )}
                 </p>
               </ListGroup.Item>
               <ListGroup.Item>
