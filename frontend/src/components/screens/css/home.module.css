@@ -1,6 +1,9 @@
 .heading {
   padding: 0.4rem;
   font-size: 1.5rem;
+  background-color: indianred;
+  color: white;
+  border-radius: 5px 5px 0 0;
 }
 
 .latestProducts {
@@ -49,18 +52,14 @@
   margin: 2px 5px 0 5px;
 }
 
-.flexItem:hover {
-  /* transform: translateY(-10px); */
-}
 .flexItem img {
   object-fit: contain;
-  height: 170px;
+  height: 150px;
   /* width: 190px; */
-  margin: 10px 20px;
 }
 
-.flexItem img:hover {
-  transform: scale(1.1);
+.flexItem :hover {
+  transform: scale(1.03);
 }
 .productList {
   overflow-x: scroll;
@@ -72,28 +71,11 @@
   overflow: hidden;
 }
 
-.latest,
 .category {
-  margin: 1rem 0;
-
+  margin: 2rem 0;
+  background-color: white !important;
   border: 10px;
   border-radius: 10px 10px 0 0;
-}
-
-.latest .heading,
-.womenFashion .heading,
-.phonesEtc .heading,
-.kidFashion .heading {
-  background-color: black;
-  color: white;
-  border-radius: 10px 10px 0 0;
-}
-
-.category .heading,
-.menFashion .heading {
-  background-color: goldenrod;
-  border-radius: 10px 10px 0 0;
-  color: white;
 }
 
 /* .productList::-webkit-scrollbar,
@@ -101,14 +83,22 @@
   display: none;
 } */
 
-.flexItem > div {
+.flexItem > a > div {
   border: none;
   padding: 0 !important;
 }
 
+.flexItem > a:hover {
+  text-decoration: none;
+}
 .campaign {
   width: 90%;
   margin: 10px;
+}
+
+.container {
+  background-color: #f4f4f4;
+  padding-bottom: 40px;
 }
 @media (min-width: 320px) and (max-width: 600px) {
   .flexItem {

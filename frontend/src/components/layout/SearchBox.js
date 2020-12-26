@@ -14,11 +14,7 @@ const SearchBox = ({ history }) => {
   };
 
   return (
-    <Form
-      className="search-flex-container"
-      style={{ width: "100%" }}
-      onSubmit={submitHandler}
-    >
+    <Form className="search-flex-container mx-auto" onSubmit={submitHandler}>
       <Form.Control
         type="search"
         name="q"
@@ -27,7 +23,7 @@ const SearchBox = ({ history }) => {
         className=""
       ></Form.Control>
       <Button
-        className="btn-warning"
+        variant="danger"
         style={{
           padding: "12px",
           marginLeft: "-15px",

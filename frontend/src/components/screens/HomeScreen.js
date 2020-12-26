@@ -9,6 +9,7 @@ import Banner from "../layout/Banner";
 import { listProducts } from "../../actions/product";
 
 import styles from "./css/home.module.css";
+import { addToCart } from "../../actions/cart";
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword;
   const dispatch = useDispatch();
@@ -53,7 +54,7 @@ const HomeScreen = ({ match }) => {
     dispatch(listProducts(keyword));
   }, [dispatch, keyword]);
   return (
-    <>
+    <div className={styles.container}>
       {!keyword && <Banner src="./images/bg2mobi.jpg" />}
       <Container>
         {loading ? (
@@ -63,7 +64,7 @@ const HomeScreen = ({ match }) => {
         ) : (
           <>
             {keyword && (
-              <div className={(styles.search, styles.latest)}>
+              <div className={styles.search}>
                 <p className={styles.heading}>
                   {`Search Results for "${keyword}"`}{" "}
                   {products.length !== 0 && `${products.length} items found`}
@@ -86,8 +87,8 @@ const HomeScreen = ({ match }) => {
               </div>
             )}
 
-            {!latest && latest.length !== 0 && (
-              <div className={(styles.category, styles.latest)}>
+            {!keyword && latest && latest.length !== 0 && (
+              <div className={styles.category}>
                 <p className={styles.heading}>New Products</p>
                 <div className={styles.productList}>
                   <section className={styles.latestProducts}>
@@ -123,7 +124,7 @@ const HomeScreen = ({ match }) => {
             )}
 
             {!keyword && womenFashion && womenFashion.length !== 0 && (
-              <div className={(styles.category, styles.womenFashion)}>
+              <div className={styles.category}>
                 <p className={styles.heading}>Women's Fashion</p>
                 <div className={styles.categoryList}>
                   <section className={styles.categoryItems}>
@@ -141,7 +142,7 @@ const HomeScreen = ({ match }) => {
             )}
 
             {!keyword && menFashion && menFashion.length !== 0 && (
-              <div className={(styles.category, styles.menFashion)}>
+              <div className={styles.category}>
                 <p className={styles.heading}>Men's Fashion</p>
                 <div className={styles.categoryList}>
                   <section className={styles.categoryItems}>
@@ -159,7 +160,7 @@ const HomeScreen = ({ match }) => {
             )}
 
             {!keyword && kidFashion && kidFashion.length !== 0 && (
-              <div className={(styles.category, styles.kidFashion)}>
+              <div className={styles.category}>
                 <p className={styles.heading}>Kids's Fashion</p>
                 <div className={styles.categoryList}>
                   <section className={styles.categoryItems}>
@@ -177,7 +178,7 @@ const HomeScreen = ({ match }) => {
             )}
 
             {!keyword && phonesEtc && phonesEtc.length !== 0 && (
-              <div className={(styles.category, styles.phonesEtc)}>
+              <div className={styles.category}>
                 <p className={styles.heading}>Phones & Accessories</p>
                 <div className={styles.categoryList}>
                   <section className={styles.categoryItems}>
@@ -196,7 +197,7 @@ const HomeScreen = ({ match }) => {
           </>
         )}
       </Container>
-    </>
+    </div>
   );
 };
 

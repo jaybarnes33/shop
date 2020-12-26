@@ -9,8 +9,8 @@ const Product = ({ product }) => {
   };
 
   return (
-    <Card className="my-4 p-3">
-      <Link to={`/products/${product._id}/${product.name}`}>
+    <Link to={`/products/${product._id}/${product.name.replace(/\s/g, "-")}`}>
+      <Card className="my-4 p-3">
         <Card.Img
           style={{
             borderRadius: "2px",
@@ -22,26 +22,26 @@ const Product = ({ product }) => {
           loading="lazy"
           alt={product.name}
         />
-      </Link>
-      <Card.Body>
-        <Link to={`/products/${product._id}/${product.name}`}>
+
+        <Card.Body>
           <Card.Title as="div">
             <strong>{product.name.substring(0, 13)}...</strong>
           </Card.Title>
-        </Link>
-        <Card.Text as="div">
-          <Rating
-            value={product.rating}
-            text={`${product.numReviews} reviews`}
-          />
-        </Card.Text>
-        <Card.Text
-          style={{ fontSize: "0.9rem", fontWeight: "bold", color: "black" }}
-        >
-          GH₵ {addDecimals(product.price)}
-        </Card.Text>
-      </Card.Body>
-    </Card>
+
+          <Card.Text as="div">
+            <Rating
+              value={product.rating}
+              text={`${product.numReviews} reviews`}
+            />
+          </Card.Text>
+          <Card.Text
+            style={{ fontSize: "0.9rem", fontWeight: "bold", color: "black" }}
+          >
+            GH₵ {addDecimals(product.price)}
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    </Link>
   );
 };
 

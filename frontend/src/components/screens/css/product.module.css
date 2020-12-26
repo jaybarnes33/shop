@@ -37,6 +37,7 @@ h3 {
   margin: 1rem 0;
   border: 10px;
   border-radius: 10px 10px 0 0;
+  background-color: white;
 }
 
 .categoryContainer {
@@ -47,7 +48,7 @@ h3 {
 .sameCategory .heading {
   background-color: black;
   color: white;
-  border-radius: 10px 10px 0 0;
+  border-radius: 5px 5px 0 0;
 }
 
 .flexItem {
@@ -55,7 +56,18 @@ h3 {
   width: 200px;
 }
 
-.flexItem > div {
+.flexItem > a > div {
   border: none;
   padding: 0 !important;
+}
+
+.flexItem img {
+  object-fit: contain;
+  height: 170px;
+  /* width: 190px; */
+  /* margin: 0 20px; */
+}
+
+.flexItem img:hover {
+  transform: scale(1.1);
 }

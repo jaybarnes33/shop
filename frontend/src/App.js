@@ -4,6 +4,7 @@ import "./bootstrap.min.css";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import HomeScreen from "./components/screens/HomeScreen";
+import SearchScreen from "./components/screens/SearchScreen";
 import ProductScreen from "./components/screens/ProductScreen";
 import LoginScreen from "./components/screens/LoginScreen";
 import RegisterScreen from "./components/screens/RegisterScreen";
@@ -43,7 +44,8 @@ const App = () => {
             path="/admin/product/:product_id/edit"
             component={ProductEditScreen}
           />
-          <Route path="/search/:keyword" component={HomeScreen} />
+
+          <Route path="/search/:keyword" component={SearchScreen} />
         </section>
 
         <Footer />
