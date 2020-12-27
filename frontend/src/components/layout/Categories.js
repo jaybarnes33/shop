@@ -17,15 +17,33 @@ const Categories = () => {
   }, [dispatch]);
   return (
     <Card className={`${styles.categories} desktop-only`}>
-      <Button className="btn-block">Categories</Button>
       <ul>
-        <li>Electronics</li>
-        <li>Phones & Accessories</li>
-        <li>Books & Stationnery</li>
-        <li>Foods</li>
-        <li>Skin Care</li>
-        <li>Fashion</li>
-        <li>Lifestyle</li>
+        <li>
+          {" "}
+          <i className="fa fa-plug"></i> Electronics
+        </li>
+        <li>
+          {" "}
+          <i className="fa fa-mobile-alt"></i> Phones & Accessories
+        </li>
+        <li>
+          <i className="fa fa-book"></i> Books & Stationnery
+        </li>
+        <li>
+          <i className="fa fa-ice-cream"></i> Foods & Beverages
+        </li>
+        <li>
+          {" "}
+          <i className="fa fa-book"></i> Skin Care
+        </li>
+        <li>
+          {" "}
+          <i className="fa fa-glasses"></i> Fashion & Lifestyle
+        </li>
+        <li>
+          {" "}
+          <i className="fa fa-desktop"></i> Computing
+        </li>
       </ul>
     </Card>
   );

@@ -14,23 +14,20 @@ const SearchBox = ({ history }) => {
   };
 
   return (
-    <Form className="search-flex-container mx-auto" onSubmit={submitHandler}>
-      <Form.Control
-        type="search"
-        name="q"
-        placeholder="Search for item by name, brand or category."
-        onChange={(e) => setKeyword(e.target.value)}
-        className=""
-      ></Form.Control>
-      <Button
-        variant="primary"
-        style={{
-          padding: "12px",
-          marginLeft: "-15px",
-        }}
-        type="submit"
-      >
-        <i className="fa fa-search"></i>
+    <Form className="form mx-auto" onSubmit={submitHandler}>
+      <div className="search-flex-container mx-auto">
+        <i className=" ml-2 fa fa-search"></i>
+        <Form.Control
+          type="search"
+          name="q"
+          placeholder="Search for item by name, brand or category."
+          onChange={(e) => setKeyword(e.target.value)}
+          className=""
+        ></Form.Control>
+      </div>
+
+      <Button variant="dark" type="submit">
+        {`  Search`}
       </Button>
     </Form>
   );
