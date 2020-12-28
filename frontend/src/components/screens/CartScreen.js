@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -14,10 +14,15 @@ import {
 import "./css/cart.css";
 import { addToCart, removeFromCart } from "../../actions/cart";
 import Message from "../layout/Message";
-
+import QuantitySelector from "../layout/CartSelector";
 const CartScreen = ({ match, location, history }) => {
   const dispatch = useDispatch();
 
+  const [quantity, setQuantity] = useState(1);
+
+  const handleChange = (value) => {
+    setQuantity(value);
+  };
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
@@ -62,7 +67,7 @@ const CartScreen = ({ match, location, history }) => {
                     </Col>
                     <Col xs={3}>GH₵{addDecimals(item.price)}</Col>
                     <Col xs={2}>
-                      {" "}
+                      {/* {" "}
                       <Form.Control
                         as="select"
                         className="select"
@@ -78,7 +83,13 @@ const CartScreen = ({ match, location, history }) => {
                             {x + 1}
                           </option>
                         ))}
-                      </Form.Control>
+                      </Form.Control> */}
+                      <QuantitySelector
+                        id={item.product}
+                        onChange={handleChange}
+                        quantity={item.quantity}
+                        stock={item.stock}
+                      />
                     </Col>
                     <Col xs={2}>
                       <Button

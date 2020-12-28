@@ -11,6 +11,9 @@
   margin: 0;
 }
 
+.form-control {
+  box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.3);
+}
 @media screen and (max-width: 991px) {
   .app {
     padding-top: 130px;

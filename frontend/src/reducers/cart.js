@@ -47,6 +47,7 @@ export const cartReducer = (
         paymentMethod: action.payload,
       };
     case CART_RESET:
+      localStorage.removeItem("cartItems");
       return {
         ...state,
         cartItems: [],

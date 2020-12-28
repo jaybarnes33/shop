@@ -22,10 +22,12 @@
   height: 400px;
   margin: 20px 0;
   object-fit: fill;
+  border-radius: 5px;
 }
 
 .campaign:hover {
   transform: scale(1.03);
+  border-radius: 5px;
 }
 
 .categories {
@@ -34,7 +36,7 @@
   left: 5%;
   right: 10%;
   width: 90%;
-  height: 100%;
+  /* height: 100%; */
   text-align: left;
   border-radius: 5px;
 }

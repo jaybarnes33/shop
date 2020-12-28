@@ -1,4 +1,5 @@
 import Order from "../models/Order.js";
+import Product from "../models/Product.js";
 import asyncHandler from "express-async-handler";
 
 // @desc Create Order
@@ -29,7 +30,15 @@ const createOrder = asyncHandler(async (req, res) => {
       shippingPrice,
       totalPrice,
     });
+
+    order.orderItems.map(async (order) => {
+      const product = await Product.findById(order.product);
+      product.countInStock = product.countInStock - order.quantity;
+      await product.save();
+      console.log(product);
+    });
     const createdOrder = await order.save();
+
     res.status(201).json(createdOrder);
   }
 });

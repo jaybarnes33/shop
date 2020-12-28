@@ -96,6 +96,23 @@ const HomeScreen = ({ match }) => {
                 </div>
               </div>
             )}
+            {kidFashion && kidFashion.length !== 0 && (
+              <div className={styles.category}>
+                <p className={styles.heading}>Kid's Fashion</p>
+                <div className={styles.categoryList}>
+                  <section className={styles.categoryItems}>
+                    {kidFashion
+                      .reverse()
+                      .slice(0, 4)
+                      .map((product) => (
+                        <div className={styles.flexItem} key={product._id}>
+                          <Product product={product} />
+                        </div>
+                      ))}
+                  </section>
+                </div>
+              </div>
+            )}
             {womenFashion && womenFashion.length !== 0 && (
               <div className={styles.category}>
                 <p className={styles.heading}>Women's Fashion</p>
@@ -130,23 +147,7 @@ const HomeScreen = ({ match }) => {
                 </div>
               </div>
             )}
-            {kidFashion && kidFashion.length !== 0 && (
-              <div className={styles.category}>
-                <p className={styles.heading}>Kids's Fashion</p>
-                <div className={styles.categoryList}>
-                  <section className={styles.categoryItems}>
-                    {kidFashion
-                      .reverse()
-                      .slice(0, 4)
-                      .map((product) => (
-                        <div className={styles.flexItem} key={product._id}>
-                          <Product product={product} />
-                        </div>
-                      ))}
-                  </section>
-                </div>
-              </div>
-            )}
+
             {phonesEtc && phonesEtc.length !== 0 && (
               <div className={styles.category}>
                 <p className={styles.heading}>Phones & Accessories</p>

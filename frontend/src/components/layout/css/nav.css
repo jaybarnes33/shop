@@ -42,15 +42,21 @@ header {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid grey;
+  box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   margin-top: 0.3rem;
   margin-right: 10px;
 }
 
-.search-flex-container .form-control::active {
+.search-flex-container .form-control {
+  border: none !important;
+  border-radius: 5px;
+  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.3);
+}
+.search-flex-container .form-control:active {
   border: none !important;
   outline: none;
+  background-color: none !important;
 }
 
 .carousel-control-prev {
@@ -114,8 +120,9 @@ header {
     margin-left: -20px;
     margin-bottom: 2px;
     padding: 10px;
-    height: 48px;
+    height: 49px;
     font-size: 12px !important;
     border-radius: 0 5px 5px 0;
+    box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.3);
   }
 }
