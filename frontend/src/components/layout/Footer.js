@@ -1,18 +1,16 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import Statement from "./Statement";
 
 const Footer = () => {
   return (
     <div>
       <Container>
-        <Row>
-          <Col>
-            <footer className="text-center py-3">
-              Copyright &copy; Atrady - All Rights Reserved
-            </footer>
-          </Col>
-        </Row>
+        <Statement />
       </Container>
+      <footer className="text-center py-3">
+        Copyright &copy; Atrady - All Rights Reserved
+      </footer>
     </div>
   );
 };

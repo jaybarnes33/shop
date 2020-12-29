@@ -1,18 +1,24 @@
 .heading {
   padding: 0.4rem;
   font-size: 1.5rem;
-  background-color: black;
+  background-color: #1a1a1a;
   color: white;
   border-radius: 5px 5px 0 0;
+  font-weight: bold;
+}
+
+.heading a {
+  color: white !important;
+
   font-weight: bold;
 }
 
 .latestProducts {
   display: inline-flex;
   flex-direction: row;
-  flex: 30%;
-  flex-grow: 0;
-  justify-content: space-between;
+
+  justify-content: space-around;
+  align-items: flex-start;
 }
 
 .categoryList,
@@ -26,7 +32,8 @@
   flex-wrap: wrap;
   flex-shrink: 0;
   flex-grow: 0;
-  /* justify-content: space-between; */
+  justify-content: flex-start;
+  padding: 0 10px;
 }
 
 .searchItems {
@@ -49,13 +56,12 @@
   border: none;
 }
 .flexItem {
-  width: 200px;
-  margin: 2px 5px 0 5px;
+  width: 165px;
 }
 
 .flexItem img {
   object-fit: contain;
-  height: 150px;
+  height: 170px;
   width: 100%;
 }
 
@@ -73,7 +79,7 @@
 }
 
 .category {
-  margin: 1rem 0;
+  margin: 1rem 1rem;
   background-color: white !important;
   border: 10px;
   border-radius: 5px 5px 0 0;
@@ -85,6 +91,9 @@
   display: none;
 } */
 
+.right {
+  text-align: right;
+}
 .flexItem > a > div {
   border: none;
   padding: 0 !important;

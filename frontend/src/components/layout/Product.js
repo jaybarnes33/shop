@@ -9,7 +9,7 @@ const Product = ({ product }) => {
   };
 
   return (
-    <Link to={`/products/${product._id}/${product.name.replace(/\s/g, "-")}`}>
+    <Link to={`/product/${product._id}/${product.name.replace(/\s/g, "-")}`}>
       <Card className="my-4 p-3">
         <Card.Img
           style={{

@@ -20,6 +20,7 @@ import "./index.css";
 import ProductListScreen from "./components/screens/ProductListScreen";
 import ProductEditScreen from "./components/screens/ProductEditScreen";
 import OrderListScreen from "./components/screens/OrderListScreen";
+import CategoryScreen from "./components/screens/CategoryScreen";
 const App = () => {
   return (
     <>
@@ -27,7 +28,13 @@ const App = () => {
         <Header />
         <section className="app">
           <Route path="/" component={HomeScreen} exact />
-          <Route path="/products/:id/:name" component={ProductScreen} />
+
+          <Route path="/product/:id/:name" component={ProductScreen} exact />
+          <Route
+            path="/products/categories/:category"
+            component={CategoryScreen}
+            exact
+          />
           <Route path="/signin" component={LoginScreen} />
           <Route path="/register" component={RegisterScreen} />
           <Route path="/profile" component={ProfileScreen} />

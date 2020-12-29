@@ -20,7 +20,7 @@ const SearchItem = ({ item }) => {
             </Link>
           </Col>
           <Col xs={9}>
-            <Link to={`/products/${item._id}/${item.name}`}>
+            <Link to={`/product/${item._id}/${item.name}`}>
               <div>
                 <h5 style={{ paddingTop: "15px" }}>{item.name}</h5>
                 <h6>{`${item.category}, ${item.brand}`}</h6>

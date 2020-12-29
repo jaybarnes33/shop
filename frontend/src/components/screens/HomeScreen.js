@@ -9,6 +9,7 @@ import Banner from "../layout/Banner";
 import { listProducts } from "../../actions/product";
 
 import styles from "./css/home.module.css";
+import Heading from "../layout/Heading";
 
 const HomeScreen = ({ match }) => {
   const dispatch = useDispatch();
@@ -64,12 +65,12 @@ const HomeScreen = ({ match }) => {
           <>
             {latest && latest.length !== 0 && (
               <div className={styles.category}>
-                <p className={styles.heading}>New Products</p>
-                <div className={styles.productList}>
-                  <section className={styles.latestProducts}>
+                <Heading title="Latest Products" />
+                <div className={styles.categoryList}>
+                  <section className={styles.categoryItems}>
                     {latest
                       .reverse()
-                      .slice(0, 12)
+                      .slice(0, 6)
                       .map((product) => (
                         <div className={styles.flexItem} key={product._id}>
                           <Product product={product} />
@@ -81,12 +82,12 @@ const HomeScreen = ({ match }) => {
             )}
             {electronics && electronics.length !== 0 && (
               <div className={styles.category}>
-                <p className={styles.heading}>Electronics</p>
+                <Heading title="Electronics" />
                 <div className={styles.categoryList}>
                   <section className={styles.categoryItems}>
                     {electronics
                       .reverse()
-                      .slice(0, 4)
+                      .slice(0, 6)
                       .map((product) => (
                         <div className={styles.flexItem} key={product._id}>
                           <Product product={product} />
@@ -98,12 +99,12 @@ const HomeScreen = ({ match }) => {
             )}
             {kidFashion && kidFashion.length !== 0 && (
               <div className={styles.category}>
-                <p className={styles.heading}>Kid's Fashion</p>
+                <Heading title="Kid's Fashion" />
                 <div className={styles.categoryList}>
                   <section className={styles.categoryItems}>
                     {kidFashion
                       .reverse()
-                      .slice(0, 4)
+                      .slice(0, 6)
                       .map((product) => (
                         <div className={styles.flexItem} key={product._id}>
                           <Product product={product} />
@@ -115,12 +116,12 @@ const HomeScreen = ({ match }) => {
             )}
             {womenFashion && womenFashion.length !== 0 && (
               <div className={styles.category}>
-                <p className={styles.heading}>Women's Fashion</p>
+                <Heading title="Women's Fashion" />
                 <div className={styles.categoryList}>
                   <section className={styles.categoryItems}>
                     {womenFashion
                       .reverse()
-                      .slice(0, 4)
+                      .slice(0, 6)
                       .map((product) => (
                         <div className={styles.flexItem} key={product._id}>
                           <Product product={product} />
@@ -132,12 +133,12 @@ const HomeScreen = ({ match }) => {
             )}
             {menFashion && menFashion.length !== 0 && (
               <div className={styles.category}>
-                <p className={styles.heading}>Men's Fashion</p>
+                <Heading title="Men's Fashion" />
                 <div className={styles.categoryList}>
                   <section className={styles.categoryItems}>
                     {menFashion
                       .reverse()
-                      .slice(0, 4)
+                      .slice(0, 6)
                       .map((product) => (
                         <div className={styles.flexItem} key={product._id}>
                           <Product product={product} />
@@ -150,12 +151,12 @@ const HomeScreen = ({ match }) => {
 
             {phonesEtc && phonesEtc.length !== 0 && (
               <div className={styles.category}>
-                <p className={styles.heading}>Phones & Accessories</p>
+                <Heading title="Phone's & Accessories" />
                 <div className={styles.categoryList}>
                   <section className={styles.categoryItems}>
                     {phonesEtc
                       .reverse()
-                      .slice(0, 4)
+                      .slice(0, 6)
                       .map((product) => (
                         <div className={styles.flexItem} key={product._id}>
                           <Product product={product} />

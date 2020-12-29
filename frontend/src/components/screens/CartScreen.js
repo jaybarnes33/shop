@@ -56,17 +56,17 @@ const CartScreen = ({ match, location, history }) => {
             <ListGroup variant="flush">
               {cartItems.map((item) => (
                 <ListGroup.Item key={item.product}>
-                  <Row>
-                    <Col xs={1}>
+                  <Row style={{ fontSize: "0.8rem" }}>
+                    <Col xs={2}>
                       <Image src={item.image} alt={item.name} fluid rounded />
                     </Col>
-                    <Col xs={3}>
+                    {/* <Col xs={2}>
                       <Link to={`/products/${item.product}`}>
                         {item.name.substring(0, 13)}...
                       </Link>
-                    </Col>
+                    </Col> */}
                     <Col xs={3}>GH₵{addDecimals(item.price)}</Col>
-                    <Col xs={2}>
+                    <Col xs={4}>
                       {/* {" "}
                       <Form.Control
                         as="select"
@@ -91,7 +91,7 @@ const CartScreen = ({ match, location, history }) => {
                         stock={item.stock}
                       />
                     </Col>
-                    <Col xs={2}>
+                    <Col xs={1}>
                       <Button
                         type="button"
                         variant="light"

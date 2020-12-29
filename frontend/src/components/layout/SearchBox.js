@@ -26,7 +26,7 @@ const SearchBox = ({ history }) => {
         ></Form.Control>
       </div>
 
-      <Button variant="dark" type="submit">
+      <Button variant="warning" type="submit">
         {`  Search`}
       </Button>
     </Form>
