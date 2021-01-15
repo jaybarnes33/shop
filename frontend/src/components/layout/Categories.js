@@ -5,6 +5,7 @@ import { Card, Dropdown, Button, ButtonGroup } from "react-bootstrap";
 import { listProducts } from "../../actions/product";
 
 import styles from "./css/banner.module.css";
+import { Link } from "react-router-dom";
 
 const Categories = () => {
   const dispatch = useDispatch();
@@ -19,15 +20,19 @@ const Categories = () => {
     <Card className={`${styles.categories} desktop-only`}>
       <ul>
         <li>
-          {" "}
-          <i className="fa fa-plug"></i> Electronics
+          <Link to="/products/categories/electronics">
+            <i className="fa fa-plug"></i> Electronics
+          </Link>
         </li>
         <li>
-          {" "}
-          <i className="fa fa-mobile-alt"></i> Phones & Accessories
+          <Link to="/products/categories/electronics">
+            <i className="fa fa-mobile-alt"></i> Phones & Accessories
+          </Link>
         </li>
         <li>
-          <i className="fa fa-book"></i> Books & Stationnery
+          <Link to="/products/categories/electronics">
+            <i className="fa fa-book"></i> Books & Stationnery
+          </Link>
         </li>
         <li>
           <i className="fa fa-ice-cream"></i> Foods & Beverages

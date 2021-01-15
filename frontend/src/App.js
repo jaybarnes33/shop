@@ -24,7 +24,7 @@ import CategoryScreen from "./components/screens/CategoryScreen";
 const App = () => {
   return (
     <>
-      <Router>
+      <Router onUpdate={() => window.scrollTo(0, 0)}>
         <Header />
         <section className="app">
           <Route path="/" component={HomeScreen} exact />

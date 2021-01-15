@@ -6,16 +6,15 @@ const Heading = ({ title }) => {
   return (
     <div className={styles.heading}>
       <Row>
-        <Col md={8}>{title}</Col>
-        <Col md={4} className={styles.right}>
+        <Col xs={10}>{title}</Col>
+        <Col xs={2} className={styles.right}>
           <Link
             to={`/products/categories/${title
               .toLowerCase()
               .replace(/\s/g, "-")}`}
           >
-            See All
+            <i className="ml-2 fa fa-caret-right"></i>
           </Link>
-          <i className="ml-2 fa fa-caret-right"></i>
         </Col>
       </Row>
     </div>
