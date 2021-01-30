@@ -62,7 +62,7 @@
 
 .flexItem img {
   object-fit: contain;
-  height: 170px;
+  height: 130px;
   width: 100%;
 }
 
@@ -121,6 +121,13 @@
   .categoryItems {
     justify-content: space-between;
     padding: 0px;
+  }
+
+  .flexItem img {
+    object-fit: contain;
+    height: 130px;
+    width: 80%;
+    margin: 0 15px;
   }
 }
 

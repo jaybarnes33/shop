@@ -36,6 +36,8 @@ header {
 
 .badge {
   position: absolute;
+  right: -10px;
+  top: -10px;
 }
 
 .search-flex-container {
