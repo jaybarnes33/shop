@@ -35,7 +35,6 @@ const createOrder = asyncHandler(async (req, res) => {
       const product = await Product.findById(order.product);
       product.countInStock = product.countInStock - order.quantity;
       await product.save();
-      console.log(product);
     });
     const createdOrder = await order.save();
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -41,6 +42,9 @@ const RegisterScreen = ({ location, history }) => {
       <h1 style={{ fontSize: "1.6rem", padding: "2rem 0 0.5rem 0 " }}>
         Sign Up
       </h1>
+      <Helmet>
+        <title>Register</title>
+      </Helmet>
       {message && <Message variant="danger">{message}</Message>}
       {error && <Message variant="danger">{error}</Message>}
       {loading && <Loader />}

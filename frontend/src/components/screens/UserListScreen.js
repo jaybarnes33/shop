@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Table, Button, Container } from "react-bootstrap";
+import { Helmet } from "react-helmet";
 import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import Message from "../layout/Message";
@@ -38,6 +39,10 @@ const UserListScreen = ({ history }) => {
 
   return (
     <Container>
+      <Helmet>
+        <title>Admin | Users</title>
+       
+      </Helmet>
       <h1 className="my-3">Users</h1>
       {loadingDelete && <Loader />}
       {errorDelete && <Message>{errorDelete}</Message>}

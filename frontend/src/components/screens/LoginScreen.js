@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -29,6 +30,9 @@ const LoginScreen = ({ location, history }) => {
     <Loader />
   ) : (
     <FormContainer>
+      <Helmet>
+        <title>Sign In</title>
+      </Helmet>
       <h1 className="" style={{ fontSize: "1.5rem", margin: "1.5rem 0" }}>
         Sign In
       </h1>

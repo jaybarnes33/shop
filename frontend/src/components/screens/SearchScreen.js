@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { useDispatch, useSelector } from "react-redux";
 import { Container } from "react-bootstrap";
 
@@ -22,6 +23,9 @@ const SearchScreen = ({ match }) => {
   return (
     <>
       <Container>
+        <Helmet>
+          <title>Search results for {keyword}</title>
+        </Helmet>
         <div className={styles.search}>
           <p className={`${styles.heading} my-2`}>
             {`Search Results for "${keyword}"`}{" "}
