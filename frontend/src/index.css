@@ -2,6 +2,9 @@
   text-align: center !important;
 }
 
+body {
+  background-color: #f4f4f4;
+}
 .app {
   min-height: 90vh;
   padding-top: 80px;
