@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { Form } from "react-bootstrap";
 import { addToCart } from "../../actions/cart";
 const QuantitySelector = ({ id, stock, onChange, quantity }) => {
   const dispatch = useDispatch();
-  // const [quantity, setQuantity] = useState(1);
 
   const handleChange = (qty) => {
     // setQuantity(Number(qty));

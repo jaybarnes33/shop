@@ -25,29 +25,33 @@ const Categories = () => {
           </Link>
         </li>
         <li>
-          <Link to="/products/categories/electronics">
+          <Link to="/products/categories/phones&accessories">
             <i className="fa fa-mobile-alt"></i> Phones & Accessories
           </Link>
         </li>
         <li>
-          <Link to="/products/categories/electronics">
+          <Link to="/products/categories/books&stationnery">
             <i className="fa fa-book"></i> Books & Stationnery
           </Link>
         </li>
         <li>
-          <i className="fa fa-ice-cream"></i> Foods & Beverages
+          <Link to="/products/categories/foods&beverages">
+            <i className="fa fa-ice-cream"></i> Foods & Beverages
+          </Link>
+        </li>
+        {/* <li>
+          {" "}
+          <i className="fa fa-bottle"></i> Skin Care
+        </li> */}
+        <li>
+          <Link to="/products/categories/fashion">
+            <i className="fa fa-glasses"></i> Fashion & Lifestyle
+          </Link>
         </li>
         <li>
-          {" "}
-          <i className="fa fa-book"></i> Skin Care
-        </li>
-        <li>
-          {" "}
-          <i className="fa fa-glasses"></i> Fashion & Lifestyle
-        </li>
-        <li>
-          {" "}
-          <i className="fa fa-desktop"></i> Computing
+          <Link to="/products/categories/computing">
+            <i className="fa fa-desktop"></i> Computing
+          </Link>
         </li>
       </ul>
     </Card>

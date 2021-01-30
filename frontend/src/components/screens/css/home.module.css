@@ -57,6 +57,7 @@
 }
 .flexItem {
   width: 165px;
+  margin: 10px;
 }
 
 .flexItem img {
@@ -113,7 +114,8 @@
 }
 @media (min-width: 320px) and (max-width: 600px) {
   .flexItem {
-    width: 135px;
+    width: 130px;
+    margin: 5px;
   }
 
   .categoryItems {

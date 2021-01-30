@@ -30,7 +30,7 @@ const SearchScreen = ({ match }) => {
           <div className={styles.searchList}>
             <section className={styles.searchItems}>
               <Container>
-                {products.length == 0 &&
+                {products.length === 0 &&
                   `No products matching your search "${keyword}" found`}
 
                 {products

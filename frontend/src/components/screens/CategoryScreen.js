@@ -20,8 +20,8 @@ const CategoryScreen = ({ match }) => {
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
 
-  const items = products.filter(
-    (product) => product.category.toLowerCase() === category
+  const items = products.filter((product) =>
+    product.category.toLowerCase().includes(category)
   );
 
   useEffect(() => {

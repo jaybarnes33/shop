@@ -12,5 +12,11 @@
 }
 
 .rating span {
-  margin: 0.1rem;
+  margin: 0.05rem;
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .rating {
+    font-size: 0.85rem;
+  }
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form } from "react-bootstrap";
 const QuantitySelector = ({ stock, onChange, value: quantity }) => {
   const handleChange = (event) => {
