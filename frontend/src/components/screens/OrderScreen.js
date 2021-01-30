@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import {
   Row,
   Image,
@@ -88,6 +89,9 @@ const OrderScreen = ({ match, history }) => {
     <Message variant="danger">{error}</Message>
   ) : (
     <Container>
+      <Helmet>
+        <title>Order</title>
+      </Helmet>
       <Row>
         <h2
           style={{

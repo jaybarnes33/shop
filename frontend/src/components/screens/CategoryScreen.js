@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import Product from "../layout/Product";
@@ -30,6 +31,14 @@ const CategoryScreen = ({ match }) => {
   return (
     <div className={styles.container}>
       <Container>
+        <Helmet>
+          <title>
+            {category
+              .split(" ")
+              .map((word) => word[0].toUpperCase() + word.substring(1))
+              .join(" ")}
+          </title>
+        </Helmet>
         {loading ? (
           <Loader />
         ) : error ? (

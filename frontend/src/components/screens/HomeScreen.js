@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { useDispatch, useSelector } from "react-redux";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import Product from "../layout/Product";
@@ -57,6 +58,9 @@ const HomeScreen = ({ match }) => {
     <div className={styles.container}>
       {<Banner src="./images/bg2mobi.jpg" />}
       <Container>
+        <Helmet>
+          <title>Welcome to Atrady</title>
+        </Helmet>
         {loading ? (
           <Loader />
         ) : error ? (

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -39,6 +40,9 @@ const CartScreen = ({ match, location, history }) => {
   };
   return (
     <Container>
+      <Helmet>
+        <title>{"Cart"}</title>
+      </Helmet>
       <Link className="btn btn-dark my-3" to="/">
         Go Back
       </Link>

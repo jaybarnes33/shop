@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { Table, Button, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
@@ -26,6 +27,9 @@ const OrderListScreen = ({ history, match }) => {
 
   return (
     <Container>
+      <Helmet>
+        <title>Orders</title>
+      </Helmet>
       <h1 className="my-3">Orders</h1>
 
       {loading ? (
@@ -51,7 +55,7 @@ const OrderListScreen = ({ history, match }) => {
               <tr key={order._id}>
                 <td>{order._id}</td>
                 <td>{order.user.name}</td>
-                <td>{order.createdAt.substring(0, 10)}</td>
+                <td>{order.createdAt.substring(0, 10)}</td> ``
                 <td>{order.shippingAddress.region}</td>
                 <td>{order.shippingAddress.city}</td>
                 <td>
@@ -69,7 +73,6 @@ const OrderListScreen = ({ history, match }) => {
                     <i className="fas fa-times" style={{ color: "red" }}></i>
                   )}
                 </td>
-
                 <td>
                   <LinkContainer to={`/order/${order._id}/`}>
                     <Button variant="light" className="btn-sm">
