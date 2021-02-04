@@ -1,12 +1,13 @@
 .banner {
   position: relative;
-  margin: 0 20px;
+  /* margin: 0 20px; */
   margin-bottom: 30px;
+  overflow-x: hidden;
 }
 
 .bannerText {
-  padding: 150px 30px;
-  font-size: 1.7rem;
+  /* padding: 150px 30px;
+  font-size: 1.7rem; */
 
   font-weight: bold;
 }
@@ -45,18 +46,19 @@
   position: absolute;
   top: 20px;
   left: 5%;
-  right: 10%;
-  width: 90%;
-  padding: 20px;
-  text-align: left;
+  /* right: 10%; */
+  width: 220px !important;
+  min-height: 200px;
+  padding: 20px 20px;
+
   border-radius: 5px;
 }
 
 .support span {
-  font-size: 1.3rem;
+  font-size: 1rem;
   color: grey;
   border: 1px dashed red;
-  padding: 10px 15px;
+  padding: 10px 10px;
 
   border-radius: 100%;
 }
@@ -72,7 +74,7 @@
   list-style-type: none;
   padding: 5px;
   font-weight: bold;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .campaigns {
@@ -85,7 +87,7 @@
 .campaigns img {
   margin: 10px;
   flex: 50%;
-  width: 85%;
+  width: 95%;
   height: 270px;
   object-fit: fill;
 }

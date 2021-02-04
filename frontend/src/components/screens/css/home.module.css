@@ -1,24 +1,10 @@
 .heading {
-  padding: 0.4rem;
-  font-size: 1.5rem;
-  background-color: #1a1a1a;
+  padding: 0.6rem 1.5rem;
+  font-size: 1.3rem;
+  background-color: #ec0101;
   color: white;
   border-radius: 5px 5px 0 0;
-  font-weight: bold;
-}
-
-.heading a {
-  color: white !important;
-
-  font-weight: bold;
-}
-
-.latestProducts {
-  display: inline-flex;
-  flex-direction: row;
-
-  justify-content: space-around;
-  align-items: flex-start;
+  /* font-weight: bold; */
 }
 
 .categoryList,
@@ -56,8 +42,8 @@
   border: none;
 }
 .flexItem {
-  width: 165px;
-  margin: 10px;
+  width: 155px;
+  margin-right: 10px;
 }
 
 .flexItem img {

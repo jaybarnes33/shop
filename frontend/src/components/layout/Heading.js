@@ -13,7 +13,7 @@ const Heading = ({ title }) => {
               .toLowerCase()
               .replace(/\s/g, "-")}`}
           >
-            <i className="ml-2 fa fa-caret-right"></i>
+            <i className="ml-2 fas fa-caret-right"></i>
           </Link>
         </Col>
       </Row>
