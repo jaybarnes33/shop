@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Container } from "react-bootstrap";
+import { Image, Row, Col, Container } from "react-bootstrap";
 import Campaigns from "./Campaigns";
 import Categories from "./Categories";
 import styles from "./css/banner.module.css";

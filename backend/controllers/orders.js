@@ -101,4 +101,12 @@ const delivered = asyncHandler(async (req, res) => {
   }
 });
 
-export { createOrder, getOrder, getOrders, sendOrder, delivered };
+// // @desc Get current user's orders
+// // @GET  /api/orders/my
+// // @access Private
+const orderMy = asyncHandler(async (req, res) => {
+  const orders = await Order.find({ user: req.user._id });
+  res.json(orders);
+});
+
+export { createOrder, getOrder, getOrders, sendOrder, delivered, orderMy };

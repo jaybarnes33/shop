@@ -7,6 +7,10 @@
   /* font-weight: bold; */
 }
 
+.heading a {
+  color: white;
+}
+
 .categoryList,
 .productList {
   margin-bottom: 2rem;

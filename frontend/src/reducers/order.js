@@ -11,6 +11,9 @@ import {
   ORDER_SEND_REQUEST,
   ORDER_SEND_SUCCESS,
   ORDER_SEND_FAIL,
+  ORDER_MY_REQUEST,
+  ORDER_MY_SUCCESS,
+  ORDER_MY_FAIL,
   ORDER_SEND_RESET,
   ORDER_DELIVERED_REQUEST,
   ORDER_DELIVERED_SUCCESS,
@@ -80,6 +83,29 @@ export const orderListReducer = (state = { orders: [] }, action) => {
         orders: action.payload,
       };
     case ORDER_LIST_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const ordersMyReducer = (state = { orders: [] }, action) => {
+  switch (action.type) {
+    case ORDER_MY_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case ORDER_MY_SUCCESS:
+      return {
+        loading: false,
+
+        orders: action.payload,
+      };
+    case ORDER_MY_FAIL:
       return {
         loading: false,
         error: action.payload,

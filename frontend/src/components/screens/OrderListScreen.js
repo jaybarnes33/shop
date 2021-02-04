@@ -55,7 +55,7 @@ const OrderListScreen = ({ history, match }) => {
               <tr key={order._id}>
                 <td>{order._id}</td>
                 <td>{order.user.name}</td>
-                <td>{order.createdAt.substring(0, 10)}</td> ``
+                <td>{order.createdAt.substring(0, 10)}</td>
                 <td>{order.shippingAddress.region}</td>
                 <td>{order.shippingAddress.city}</td>
                 <td>

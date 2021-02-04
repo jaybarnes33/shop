@@ -34,9 +34,9 @@
 .categories {
   position: absolute;
   top: 20px;
-  left: 5%;
+
   right: 10%;
-  width: 90%;
+  width: 100%;
   /* height: 100%; */
   text-align: left;
   border-radius: 5px;
@@ -47,10 +47,12 @@
   top: 20px;
   left: 5%;
   /* right: 10%; */
-  width: 220px !important;
-  min-height: 200px;
-  padding: 20px 20px;
+}
 
+.supportCard {
+  min-height: 100px;
+  padding: 20px 20px;
+  width: 220px;
   border-radius: 5px;
 }
 
@@ -59,10 +61,12 @@
   color: grey;
   border: 1px dashed red;
   padding: 10px 10px;
-
   border-radius: 100%;
 }
 
+.smallBanner {
+  margin-top: 1rem;
+}
 .support > div {
   margin-bottom: 30px;
 }

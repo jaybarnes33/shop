@@ -9,6 +9,7 @@ router
   .post(protect, controller.createOrder)
   .get(protect, admin, controller.getOrders);
 
+router.route("/my").get(protect, controller.orderMy);
 router.route("/:order_id").get(protect, controller.getOrder);
 
 router.route("/:order_id/send").get(protect, admin, controller.sendOrder);
