@@ -26,13 +26,14 @@ const orderSchema = mongoose.Schema(
       phone: { type: String, required: true },
       region: { type: String, required: true },
     },
-    paymentMethod: {
-      type: String,
-      required: true,
-    },
     paymentResult: {
       id: { type: String },
       status: { type: String },
+      amount: { type: String },
+      transaction_id: { type: String },
+      transaction_ref: { type: String },
+      provider: { type: String },
+      currency: { type: String, default: "GHS" },
       update_time: { type: String },
       email_address: { type: String },
     },

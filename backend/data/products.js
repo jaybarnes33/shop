@@ -8,14 +8,7 @@ const products = [
     _id: "5fa85bcd0977254079af9730",
     name: "Airpods Wireless",
     image: "/images/airpods.jpg",
-    description:
-      "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
-    brand: "Apple",
-    category: "Electronics",
-    user: "5fa85bcd0977254079af972d",
-    __v: 0,
-    createdAt: "2020-11-08T20:57:49.982Z",
-    updatedAt: "2020-11-09T10:09:07.176Z",
+    description: "Hello",
   },
   {
     reviews: [],
@@ -30,10 +23,6 @@ const products = [
       "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
     brand: "Apple",
     category: "Electronics",
-    user: "5fa85bcd0977254079af972d",
-    __v: 0,
-    createdAt: "2020-11-08T20:57:49.982Z",
-    updatedAt: "2020-11-09T18:19:14.377Z",
   },
   {
     reviews: [],
@@ -48,10 +37,6 @@ const products = [
       "Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design",
     brand: "Cannon",
     category: "Electronics",
-    user: "5fa85bcd0977254079af972d",
-    __v: 0,
-    createdAt: "2020-11-08T20:57:49.983Z",
-    updatedAt: "2020-11-08T20:57:49.983Z",
   },
   {
     reviews: [],
@@ -66,10 +51,6 @@ const products = [
       "The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music",
     brand: "Sony",
     category: "Electronics",
-    user: "5fa85bcd0977254079af972d",
-    __v: 0,
-    createdAt: "2020-11-08T20:57:49.983Z",
-    updatedAt: "2020-11-08T20:57:49.983Z",
   },
   {
     reviews: [],
@@ -84,10 +65,6 @@ const products = [
       "Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience",
     brand: "Logitech",
     category: "Electronics",
-    user: "5fa85bcd0977254079af972d",
-    __v: 0,
-    createdAt: "2020-11-08T20:57:49.983Z",
-    updatedAt: "2020-11-08T20:57:49.983Z",
   },
   {
     reviews: [],
@@ -102,10 +79,6 @@ const products = [
       "Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space",
     brand: "Amazon",
     category: "Electronics",
-    user: "5fa85bcd0977254079af972d",
-    __v: 0,
-    createdAt: "2020-11-08T20:57:49.983Z",
-    updatedAt: "2020-11-08T20:57:49.983Z",
   },
   {
     reviews: [],
@@ -115,14 +88,11 @@ const products = [
     countInStock: 5,
     _id: "5fa956f15d36a987b9771f21",
     name: "Crochet Bralette",
-    user: "5fa85bcd0977254079af972d",
+
     image: "/images/bralette.png",
     brand: "KlassyKidz",
     category: "Women's Fashion",
     description: "A cool and trendy crochet top.",
-    createdAt: "2020-11-09T14:49:21.967Z",
-    updatedAt: "2020-11-09T14:56:35.584Z",
-    __v: 0,
   },
   {
     reviews: [],
@@ -132,14 +102,11 @@ const products = [
     countInStock: 6,
     _id: "5fa9801dc50d909135a6228e",
     name: "Boy 2 pc Suit (8yrs, Grey)",
-    user: "5fa85bcd0977254079af972d",
+
     image: "/images/boys1.jpg",
     brand: "KlassyKidz",
     category: "Kid's Fashion",
     description: "A 2pc suit for boys",
-    createdAt: "2020-11-09T17:45:01.349Z",
-    updatedAt: "2020-11-09T17:49:09.457Z",
-    __v: 0,
   },
   {
     reviews: [],
@@ -149,14 +116,11 @@ const products = [
     countInStock: 8,
     _id: "5fa98128c50d909135a6228f",
     name: "Multicolored Flowered Dress",
-    user: "5fa85bcd0977254079af972d",
+
     image: "/images/kids4.jpg",
     brand: "KlassyKidz",
     category: "Kid's Fashion",
     description: "A multicolored dress for church, parties etc.",
-    createdAt: "2020-11-09T17:49:28.269Z",
-    updatedAt: "2020-11-09T17:51:07.021Z",
-    __v: 0,
   },
   {
     reviews: [],
@@ -166,14 +130,11 @@ const products = [
     countInStock: 7,
     _id: "5fa98218c50d909135a62290",
     name: "Sea Blue Kid's Gown",
-    user: "5fa85bcd0977254079af972d",
+
     image: "/images/kids1.jpg",
     brand: "KlassyKidz",
     category: "Kid's Fashion",
     description: "A sea blue gown with flower's, bow and necklace.",
-    createdAt: "2020-11-09T17:53:28.758Z",
-    updatedAt: "2020-11-09T17:57:47.827Z",
-    __v: 0,
   },
   {
     reviews: [],
@@ -183,15 +144,12 @@ const products = [
     countInStock: 4,
     _id: "5fa989f33ae15babcd8fd462",
     name: "2pc Crochet Suit",
-    user: "5fa85bcd0977254079af972d",
+
     image: "/images/crochet.png",
     brand: "Crochet Couture",
     category: "Women's Fashion",
     description:
       "Looking for a great crochet dress? This crochet dress is designed to make you look and feel classy.",
-    createdAt: "2020-11-09T18:26:59.449Z",
-    updatedAt: "2020-11-09T18:28:21.699Z",
-    __v: 0,
   },
 ];
 

@@ -19,8 +19,8 @@ const Header = () => {
   const logOutHandler = () => {
     dispatch(logOut());
   };
-  const loggedUser = useSelector((state) => state.userLogin);
-  const { userInfo } = loggedUser;
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
 
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;

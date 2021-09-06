@@ -10,12 +10,15 @@ const createOrder = asyncHandler(async (req, res) => {
     user,
     orderItems,
     shippingAddress,
-    paymentMethod,
     itemsPrice,
     taxPrice,
     shippingPrice,
     totalPrice,
+    transaction_id,
+    trxref,
+    status,
   } = req.body;
+
   if (orderItems && orderItems.length === 0) {
     res.status(400);
     throw new Error("No orders");
@@ -24,7 +27,6 @@ const createOrder = asyncHandler(async (req, res) => {
       user,
       orderItems,
       shippingAddress,
-      paymentMethod,
       itemsPrice,
       taxPrice,
       shippingPrice,
@@ -36,6 +38,13 @@ const createOrder = asyncHandler(async (req, res) => {
       product.countInStock = product.countInStock - order.quantity;
       await product.save();
     });
+
+    order.paymentResult = {
+      transaction_id: transaction_id,
+      transaction_ref: trxref,
+      status: status,
+      update_time: new Date().toLocaleDateString(),
+    };
     const createdOrder = await order.save();
 
     res.status(201).json(createdOrder);

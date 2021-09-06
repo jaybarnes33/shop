@@ -18,6 +18,7 @@ import styles from "../../misc.module.css";
 import { createOrder } from "../../actions/order";
 import { CART_RESET } from "../../constants/cart";
 
+import { usePaystackPayment } from "react-paystack";
 const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
@@ -27,6 +28,44 @@ const PlaceOrderScreen = ({ history }) => {
 
   const addDecimals = (num) => {
     return (Math.round(num * 100) / 100).toFixed(2);
+  };
+
+  const initializePayment = usePaystackPayment({
+    reference: new Date().getTime(),
+    email: userInfo.email,
+    amount: Math.ceil(cart.totalPrice * 100),
+    currency: "GHS",
+    publicKey:
+      process.env.NODE_ENV === "production"
+        ? "pk_live_0321f28c870c206f462ac1616329d2e8ae1fd3f5"
+        : "pk_test_416cb666b87d1627e714824ceb3fc4e9ff3e6acc",
+  });
+
+  const placeOrderHandler = (reference) => {
+    dispatch(
+      createOrder({
+        user: userInfo._id,
+        orderItems: cartItems,
+        shippingAddress: shippingAddress,
+        itemsPrice: cart.itemsPrice,
+        shippingPrice: cart.shippingPrice,
+        totalPrice: cart.totalPrice,
+        transaction_id: reference.transaction,
+        trxref: reference.trxref,
+        status: reference.status,
+      })
+    );
+  };
+
+  // you can call this function anything
+  const onSuccess = (reference) => {
+    placeOrderHandler(reference);
+  };
+
+  // you can call this function anything
+  const onClose = () => {
+    // implementation for  whatever you want to do when the Paystack dialog closed.
+    console.log("closed");
   };
 
   cart.itemsPrice = addDecimals(
@@ -49,19 +88,7 @@ const PlaceOrderScreen = ({ history }) => {
     }, // eslint-disable-next-line
     [history, success]
   );
-  const placeOrderHandler = () => {
-    dispatch(
-      createOrder({
-        user: userInfo._id,
-        orderItems: cartItems,
-        paymentMethod: paymentMethod,
-        shippingAddress: shippingAddress,
-        itemsPrice: cart.itemsPrice,
-        shippingPrice: cart.shippingPrice,
-        totalPrice: cart.totalPrice,
-      })
-    );
-  };
+
   return (
     <Container>
       <CheckoutSteps step1 step2 step3 step4 />
@@ -76,15 +103,9 @@ const PlaceOrderScreen = ({ history }) => {
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Payment Method</h2>
-              <strong className={styles.bold}>Method: </strong>
-              {paymentMethod}
-            </ListGroup.Item>
-
-            <ListGroup.Item>
               <h2>Order(s)</h2>
               {cartItems.length === 0 ? (
-                <Message>Your Cart is enpty</Message>
+                <Message>Your Cart is empty</Message>
               ) : (
                 <ListGroup>
                   {cartItems.map((item, index) => (
@@ -153,7 +174,7 @@ const PlaceOrderScreen = ({ history }) => {
                 type="button"
                 className="btn btn-block"
                 disabled={cartItems.length === 0}
-                onClick={placeOrderHandler}
+                onClick={() => initializePayment(onSuccess, onClose)}
               >
                 Place Order
               </Button>

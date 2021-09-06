@@ -139,21 +139,9 @@ const OrderScreen = ({ match, history }) => {
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <h2>Payment Method</h2>
-
-              <strong className={styles.bold}>Method: </strong>
-              {paymentMethod}
-              {order.isPaid ? (
-                <Message>{` Paid on ${order.paidAt.substring(0, 10)}`}</Message>
-              ) : (
-                <Message variant="danger">Not Paid</Message>
-              )}
-            </ListGroup.Item>
-
-            <ListGroup.Item>
               <h2>Order(s)</h2>
               {orderItems.length === 0 ? (
-                <Message>Your order is enpty</Message>
+                <Message>Your order is empty</Message>
               ) : (
                 <ListGroup>
                   {orderItems.map((item, index) => (
@@ -220,22 +208,10 @@ const OrderScreen = ({ match, history }) => {
                     <Message variant="danger">{error}</Message>
                   </ListGroup.Item>
                 )}
-
-                <Button
-                  type="button"
-                  className="btn btn-block"
-                  disabled={
-                    orderItems.length === 0 ||
-                    (userInfo && userInfo._id !== order.user._id)
-                  }
-                >
-                  Pay with {paymentMethod}
-                </Button>
               </ListGroup.Item>
             )}
             {userInfo &&
               userInfo.isAdmin &&
-              order.isPaid &&
               !order.isSent &&
               !order.isDelivered && (
                 <ListGroup.Item>
@@ -247,7 +223,6 @@ const OrderScreen = ({ match, history }) => {
               )}
             {userInfo &&
               userInfo.isAdmin &&
-              order.isPaid &&
               order.isSent &&
               !order.isDelivered && (
                 <ListGroup.Item>
