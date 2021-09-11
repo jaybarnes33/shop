@@ -24,7 +24,7 @@ const PlaceOrderScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
-  const { cartItems, shippingAddress, paymentMethod } = cart;
+  const { cartItems, shippingAddress } = cart;
 
   const addDecimals = (num) => {
     return (Math.round(num * 100) / 100).toFixed(2);
