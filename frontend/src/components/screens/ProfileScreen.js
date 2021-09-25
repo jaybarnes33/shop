@@ -30,7 +30,7 @@ const ProfileScreen = ({ location, history }) => {
     if (!userInfo) {
       history.push("/signin");
     } else {
-      if (user._id !== userInfo._id) {
+      if (user?._id !== userInfo?._id) {
         dispatch(getUserDetails("profile"));
         dispatch(getMyOrders());
       } else {
@@ -118,7 +118,7 @@ const ProfileScreen = ({ location, history }) => {
               </tr>
             </thead>
             <tbody>
-              {orders.map((order) => (
+              {orders?.map((order) => (
                 <tr key={order._id}>
                   <td>{order.createdAt.substring(0, 10)}</td>
                   <td>{order.shippingAddress.region}</td>

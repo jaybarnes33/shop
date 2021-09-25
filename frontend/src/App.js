@@ -20,10 +20,12 @@ import ProductListScreen from "./components/screens/ProductListScreen";
 import ProductEditScreen from "./components/screens/ProductEditScreen";
 import OrderListScreen from "./components/screens/OrderListScreen";
 import CategoryScreen from "./components/screens/CategoryScreen";
+import ScrollToTop from "./components/layout/ScrollToTop";
 const App = () => {
   return (
     <>
-      <Router onUpdate={() => window.scrollTo(0, 0)}>
+      <Router>
+        <ScrollToTop />
         <Header />
         <section className="app">
           <Route path="/" component={HomeScreen} exact />
