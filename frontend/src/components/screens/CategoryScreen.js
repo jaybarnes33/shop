@@ -22,7 +22,7 @@ const CategoryScreen = ({ match }) => {
   const { loading, error, products } = productList;
 
   const items = products.filter((product) =>
-    product.category.toLowerCase().includes(category)
+    product.category?.toLowerCase().includes(category)
   );
 
   useEffect(() => {

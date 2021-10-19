@@ -37,7 +37,7 @@ const Product = ({ product }) => {
             />
           </Card.Text>
           <Card.Text
-            style={{ fontSize: "0.9rem", fontWeight: "bold", color: "black" }}
+            style={{ fontSize: "0.85rem", fontWeight: "bold", color: "black" }}
           >
             GH₵ {addDecimals(product.price)}
           </Card.Text>

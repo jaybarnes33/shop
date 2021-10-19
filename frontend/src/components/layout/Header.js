@@ -32,7 +32,7 @@ const Header = () => {
           <Container>
             <LinkContainer to="/">
               <Navbar.Brand>
-                <Image className="logo" src="/logo(1).png" alt="" rounded />
+                <Image className="logo" src="/logo.png" alt="logo" rounded />
               </Navbar.Brand>
             </LinkContainer>
             <Navbar.Toggle
@@ -150,7 +150,7 @@ const Header = () => {
           <Container>
             <LinkContainer to="/">
               <Navbar.Brand>
-                <Image className="logo" src="/logo(1).png" alt="" rounded />
+                <Image className="logo" src="/logo.png" alt="" rounded />
               </Navbar.Brand>
             </LinkContainer>
             <Navbar.Toggle

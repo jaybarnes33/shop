@@ -52,7 +52,7 @@
 
 .flexItem img {
   object-fit: contain;
-  height: 130px;
+  height: 100px;
   width: 100%;
 }
 
@@ -115,7 +115,7 @@
 
   .flexItem img {
     object-fit: contain;
-    height: 130px;
+    height: 100px;
     width: 80%;
     margin: 0 15px;
   }

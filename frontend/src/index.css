@@ -7,7 +7,7 @@ body {
 }
 .app {
   min-height: 90vh;
-  padding-top: 80px;
+  padding-top: 100px;
 }
 
 * {
@@ -21,6 +21,6 @@ footer {
 }
 @media screen and (max-width: 991px) {
   .app {
-    padding-top: 130px;
+    padding-top: 150px;
   }
 }
