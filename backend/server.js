@@ -1,6 +1,8 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import path from "path";
-import dotenv from "dotenv";
+
 import morgan from "morgan";
 
 import connectDB from "./config/db.js";
@@ -12,7 +14,7 @@ import uploadsRoute from "./routes/uploads.js";
 
 import colors from "colors";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
-dotenv.config();
+
 const app = express();
 
 connectDB();

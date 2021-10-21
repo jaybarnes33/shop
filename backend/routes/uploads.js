@@ -1,13 +1,22 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import path from "path";
 import multer from "multer";
+import aws from "aws-sdk";
+import multerS3 from "multer-s3";
 const router = express.Router();
 
-const storage = multer.diskStorage({
-  destination(req, file, cb) {
-    cb(null, "uploads/");
-  },
-  filename(req, file, cb) {
+aws.config.update({
+  secretAccessKey: process.env.AWS_KEY,
+  accessKeyId: process.env.AWS_KEY_ID,
+  region: process.env.AWS_REGION,
+});
+const s3 = new aws.S3();
+const storage = multerS3({
+  s3: s3,
+  bucket: process.env.BUCKET,
+  key: (req, file, cb) => {
     cb(
       null,
       `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
@@ -34,6 +43,11 @@ const upload = multer({
 });
 
 router.post("/", upload.single("image"), (req, res) => {
-  res.send(`/${req.file.path}`);
+  try {
+    console.log(req.file);
+    res.send(`${req.file.location}`);
+  } catch (error) {
+    console.log(error);
+  }
 });
 export default router;
