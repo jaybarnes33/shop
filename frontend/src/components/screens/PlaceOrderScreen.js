@@ -9,7 +9,7 @@ import {
   Container,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import Helmet from "react-helmet";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../layout/Message";
 import CheckoutSteps from "../layout/CheckoutSteps";
@@ -92,6 +92,9 @@ const PlaceOrderScreen = ({ history }) => {
 
   return (
     <Container>
+      <Helmet>
+        <title>Place Order</title>
+      </Helmet>
       <CheckoutSteps step1 step2 step3 />
       <Row>
         <Col md={8}>

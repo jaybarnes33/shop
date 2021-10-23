@@ -4,7 +4,7 @@ import { Form, Button, Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import FormContainer from "../layout/FormContainer";
 import CheckoutSteps from "../layout/CheckoutSteps";
-
+import Helmet from "react-helmet";
 import { saveShippingAddress } from "../../actions/cart";
 const ShippingScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);
@@ -23,6 +23,9 @@ const ShippingScreen = ({ history }) => {
   };
   return (
     <FormContainer>
+      <Helmet>
+        <title>Shipping</title>
+      </Helmet>
       <CheckoutSteps step1 step2 />
       <h1 className="py-3">Shipping</h1>
       <Form onSubmit={submitHandler} className="py-4">
