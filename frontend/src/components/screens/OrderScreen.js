@@ -92,19 +92,17 @@ const OrderScreen = ({ match, history }) => {
       <Helmet>
         <title>Order</title>
       </Helmet>
+
       <Row>
-        <h2
-          style={{
-            fontSize: "1.6rem",
-            wordBreak: "break-all",
-            wordWrap: "break-word",
-          }}
-          className="py-3"
-        >
-          Order {order._id}
-        </h2>
         <Col md={8}>
           <ListGroup variant="flush">
+            <ListGroup.Item>
+              <h2>Order Info</h2>
+              <p>
+                <strong>Order Id: </strong>
+                {order._id}
+              </p>
+            </ListGroup.Item>
             <ListGroup.Item>
               <h2>Buyer info</h2>
               <p>
@@ -200,38 +198,34 @@ const OrderScreen = ({ match, history }) => {
                   </Col>
                 </Row>
               </ListGroup.Item>
-            </ListGroup>
-            {userInfo && order.user._id === userInfo._id && (
-              <ListGroup.Item>
-                {error && (
+              {userInfo && order.user._id === userInfo._id && error && (
+                <ListGroup.Item>
+                  <Message variant="danger">{error}</Message>
+                </ListGroup.Item>
+              )}
+              {userInfo &&
+                userInfo.isAdmin &&
+                !order.isSent &&
+                !order.isDelivered && (
                   <ListGroup.Item>
-                    <Message variant="danger">{error}</Message>
+                    <Button className="btn-block" onClick={sendHandler}>
+                      {" "}
+                      Mark as sent
+                    </Button>
                   </ListGroup.Item>
                 )}
-              </ListGroup.Item>
-            )}
-            {userInfo &&
-              userInfo.isAdmin &&
-              !order.isSent &&
-              !order.isDelivered && (
-                <ListGroup.Item>
-                  <Button className="btn-block" onClick={sendHandler}>
-                    {" "}
-                    Mark as sent
-                  </Button>
-                </ListGroup.Item>
-              )}
-            {userInfo &&
-              userInfo.isAdmin &&
-              order.isSent &&
-              !order.isDelivered && (
-                <ListGroup.Item>
-                  <Button className="btn-block" onClick={deliverHandler}>
-                    {" "}
-                    Mark as delivered
-                  </Button>
-                </ListGroup.Item>
-              )}
+              {userInfo &&
+                userInfo.isAdmin &&
+                order.isSent &&
+                !order.isDelivered && (
+                  <ListGroup.Item>
+                    <Button className="btn-block" onClick={deliverHandler}>
+                      {" "}
+                      Mark as delivered
+                    </Button>
+                  </ListGroup.Item>
+                )}
+            </ListGroup>
           </Card>
         </Col>
       </Row>
