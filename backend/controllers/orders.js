@@ -46,7 +46,7 @@ const createOrder = asyncHandler(async (req, res) => {
       update_time: new Date().toLocaleDateString(),
     };
     order.isPaid = true;
-    order.paidAt = new Date().toLocaleDateString();
+    order.paidAt = new Date();
     const createdOrder = await order.save();
 
     res.status(201).json(createdOrder);
