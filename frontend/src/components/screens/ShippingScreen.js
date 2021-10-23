@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Col, Row } from "react-bootstrap";
 
 import { useDispatch, useSelector } from "react-redux";
 import FormContainer from "../layout/FormContainer";
@@ -15,10 +15,10 @@ const ShippingScreen = ({ history }) => {
   const [city, setCity] = useState(shippingAddress.city);
   const [phone, setPhone] = useState(shippingAddress.phone);
   const [region, setRegion] = useState(shippingAddress.region);
-
+  const [mode, setMode] = useState(shippingAddress.mode);
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(saveShippingAddress({ address, city, phone, region }));
+    dispatch(saveShippingAddress({ address, city, phone, region, mode }));
     history.push("/placeorder");
   };
   return (
@@ -66,6 +66,28 @@ const ShippingScreen = ({ history }) => {
             required
             onChange={(e) => setPhone(e.target.value)}
           ></Form.Control>
+        </Form.Group>
+        <Form.Group controlId="mode">
+          <Form.Label>Mode</Form.Label>
+          <Form.Group>
+            <Form.Check
+              label="Pick up"
+              type="radio"
+              name="mode"
+              checked={mode === "pickup"}
+              onChange={(e) => setMode("pickup")}
+            ></Form.Check>
+          </Form.Group>{" "}
+          <Form.Group>
+            {" "}
+            <Form.Check
+              checked={mode === "delivery"}
+              label="Delivery"
+              type="radio"
+              name="mode"
+              onChange={(e) => setMode("delivery")}
+            ></Form.Check>
+          </Form.Group>
         </Form.Group>
 
         <Button type="submit">Continue</Button>

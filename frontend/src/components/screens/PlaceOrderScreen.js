@@ -71,7 +71,8 @@ const PlaceOrderScreen = ({ history }) => {
   cart.itemsPrice = addDecimals(
     cart.cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)
   );
-  cart.shippingPrice = addDecimals(cart.itemsPrice > 10 ? 15 : 0);
+  cart.shippingPrice =
+    shippingAddress.mode === "delivery" ? addDecimals(10) : addDecimals(0);
   cart.totalPrice = (
     Number(cart.itemsPrice) + Number(cart.shippingPrice)
   ).toFixed(2);
@@ -91,15 +92,19 @@ const PlaceOrderScreen = ({ history }) => {
 
   return (
     <Container>
-      <CheckoutSteps step1 step2 step3 step4 />
+      <CheckoutSteps step1 step2 step3 />
       <Row>
         <Col md={8}>
           <ListGroup variant="flush">
             <ListGroup.Item>
               <h2>Shipping</h2>
               <strong className={styles.bold}>Address: </strong>
-              {shippingAddress.address}, {shippingAddress.city},{" "}
-              {shippingAddress.region}, <br />
+              {shippingAddress.address}, {shippingAddress.city},
+              {shippingAddress.region} <br />
+              <div style={{ textTransform: "capitalize" }}>
+                <strong className={` mt-2 ${styles.bold}`}>Type: </strong>
+                {shippingAddress.mode}
+              </div>
             </ListGroup.Item>
 
             <ListGroup.Item>
